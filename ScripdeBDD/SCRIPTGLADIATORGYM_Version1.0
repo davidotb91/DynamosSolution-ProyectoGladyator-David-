@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     30/08/2016 20:18:18                          */
+/* Created on:     05/09/2016 12:40:49                          */
 /*==============================================================*/
 
 
@@ -9,6 +9,8 @@ drop table if exists ACCESO;
 drop table if exists DEPORTISTA;
 
 drop table if exists EJERCICIO;
+
+drop table if exists IMPEDIMENTOS;
 
 drop table if exists METAS;
 
@@ -50,7 +52,7 @@ create table DEPORTISTA
    SEGUNDO_NOMBRE       char(40) not null,
    APELLIDO_PATERNO     char(40) not null,
    APELLIDO_MATERNO     char(40) not null,
-   SEXO                 char(2) not null,
+   GENERO               char(2) not null,
    CEDULA               char(10) not null,
    CORREO               char(50),
    FECHA_NACIMIENTO     date not null,
@@ -69,10 +71,22 @@ create table EJERCICIO
    ID_EJERCICIO         int not null auto_increment,
    ID_MUSCULO           int,
    DESCRIPCION_EJERCICIO char(70) not null,
-   IMAGEN_MAQUINA       char(1000) not null,
+   IMAGEN_MAQUINA       char(200) not null,
    NUMERO_SERIES        int not null,
    NUMERO_REPETICIONES  int not null,
+   PESO                 decimal(6,2) not null,
    primary key (ID_EJERCICIO)
+);
+
+/*==============================================================*/
+/* Table: IMPEDIMENTOS                                          */
+/*==============================================================*/
+create table IMPEDIMENTOS
+(
+   ID_IMPEDIMENTO       int not null auto_increment,
+   ID_DEPORTISTA        int,
+   DESCRIPCION          char(70) not null,
+   primary key (ID_IMPEDIMENTO)
 );
 
 /*==============================================================*/
@@ -106,13 +120,15 @@ create table M_ANTROPOMETRICAS
    ID_DEPORTISTA        int,
    PESO                 decimal(6,2) not null,
    TALLA                decimal(6,2) not null,
-   BRAZO                decimal(6,2) not null,
+   BRAZO_IZQUIERDO      decimal(6,2) not null,
+   BRAZO_DERECHO        decimal(6,2) not null,
    PECHO                decimal(6,2) not null,
    CINTURA              decimal(6,2) not null,
    CADERA               decimal(6,2),
    MUSLO                decimal(6,2) not null,
    PANTORRILLAS         decimal(6,2) not null,
    IRM                  decimal(6,2),
+   GRASA_CORPORAL       decimal(6,2),
    primary key (ID_M_ANTROPOMRTRICAS)
 );
 
@@ -126,6 +142,7 @@ create table PAGO
    FECHA_PAGO           date not null,
    FECHA_VENCIMIENTO_PAGO date not null,
    TIPO_PAGO            char(20) not null,
+   ESTADO               char(40) not null,
    primary key (ID_PAGO)
 );
 
@@ -135,7 +152,6 @@ create table PAGO
 create table PERFIL
 (
    ID_PERFIL            int not null auto_increment,
-   ID_USUARIO           int,
    DESC_PERFIL          char(40) not null,
    primary key (ID_PERFIL)
 );
@@ -187,6 +203,9 @@ alter table ACCESO add constraint FK_USUARIO_ACCESO foreign key (ID_USUARIO)
 alter table EJERCICIO add constraint FK_MUSCULO_EJERCICIO foreign key (ID_MUSCULO)
       references MUSCULO (ID_MUSCULO) on delete restrict on update restrict;
 
+alter table IMPEDIMENTOS add constraint FK_DEPORTISTA_IMPEDIMENTOS foreign key (ID_DEPORTISTA)
+      references DEPORTISTA (ID_DEPORTISTA) on delete restrict on update restrict;
+
 alter table METAS add constraint FK_DEPORTISTA_METAS foreign key (ID_DEPORTISTA)
       references DEPORTISTA (ID_DEPORTISTA) on delete restrict on update restrict;
 
@@ -198,9 +217,6 @@ alter table M_ANTROPOMETRICAS add constraint FK_DEPORTISTA_MEDIDAS foreign key (
 
 alter table PAGO add constraint FK_DEPORTITA_PAGOS foreign key (ID_DEPORTISTA)
       references DEPORTISTA (ID_DEPORTISTA) on delete restrict on update restrict;
-
-alter table PERFIL add constraint FK_PERFIL_USUARIO2 foreign key (ID_USUARIO)
-      references USUARIO (ID_USUARIO) on delete restrict on update restrict;
 
 alter table PLANIFICACION add constraint FK_MEDIDAS_PLAN foreign key (ID_M_ANTROPOMRTRICAS)
       references M_ANTROPOMETRICAS (ID_M_ANTROPOMRTRICAS) on delete restrict on update restrict;
