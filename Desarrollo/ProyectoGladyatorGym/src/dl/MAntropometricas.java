@@ -17,7 +17,7 @@ public class MAntropometricas  implements java.io.Serializable {
      private float brazoDerecho;
      private float pecho;
      private float cintura;
-     private Float cadera;
+     private float cadera;
      private float muslo;
      private Integer irm;
      private Integer grasaCorporal;
@@ -35,7 +35,7 @@ public class MAntropometricas  implements java.io.Serializable {
         this.cintura = cintura;
         this.muslo = muslo;
     }
-    public MAntropometricas(Deportista deportista, float peso, float talla, float brazoIzquierdo, float brazoDerecho, float pecho, float cintura, Float cadera, float muslo, Integer irm, Integer grasaCorporal) {
+    public MAntropometricas(Deportista deportista, float peso, float talla, float brazoIzquierdo, float brazoDerecho, float pecho, float cintura, float cadera, float muslo, Integer irm, Integer grasaCorporal) {
        this.deportista = deportista;
        this.peso = peso;
        this.talla = talla;

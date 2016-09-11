@@ -5,6 +5,9 @@
  */
 package ui;
 
+import bl.ControladorDatosAntro;
+import dl.Deportista;
+import dl.MAntropometricas;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,18 +15,47 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import util.Validaciones;
 
 /**
  *
  * @author desarrolloPC
  */
 public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
+     private String error;
+     Validaciones validador = new Validaciones();
+     
+    
 
     /**
      * Creates new form FRMRegistroDatosAntropometricos
      */
     public FRMRegistroDatosAntropometricos() {
         initComponents();
+        error="";
+        lblBicepDerechoRequerido.setVisible(false);
+        lblBicepIzquierdo.setVisible(false);
+        lblCinturaRequerido.setVisible(false);
+        lblMusloRequerido.setVisible(false);
+        lblPechoRequerido.setVisible(false);
+        lblPesoRequerido.setVisible(false);
+        lblTallaRequerido.setVisible(false);
+    }
+    public boolean validar(){
+        if(txtBicepDerecho.getText().equals("")||txtBicepIzquierdo.getText().equals("")||txtCintura.getText().equals("")||txtMuslo.getText().equals("")||txtPecho.getText().equals("")||txtPeso.getText().equals("")||txtTalla.getText().equals("")){
+       // if(txtBicepDerecho.getText().equals("")){lblBicepDerechoRequerido.setVisible(true);}
+        if(txtBicepIzquierdo.getText().equals("")){lblBicepDerechoRequerido.setVisible(true);}
+        if(txtCintura.getText().equals("")){lblBicepDerechoRequerido.setVisible(true);}
+        if(txtMuslo.getText().equals("")){lblBicepDerechoRequerido.setVisible(true);}
+        if(txtPecho.getText().equals("")){lblBicepDerechoRequerido.setVisible(true);}
+        if(txtPeso.getText().equals("")){lblBicepDerechoRequerido.setVisible(true);}
+        if(txtTalla.getText().equals("")){lblBicepDerechoRequerido.setVisible(true);}
+        
+        return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
@@ -53,6 +85,13 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         txtBicepIzquierdo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtBicepDerecho = new javax.swing.JTextField();
+        lblPesoRequerido = new javax.swing.JLabel();
+        lblBicepIzquierdo = new javax.swing.JLabel();
+        lblMusloRequerido = new javax.swing.JLabel();
+        lblTallaRequerido = new javax.swing.JLabel();
+        lblPechoRequerido = new javax.swing.JLabel();
+        lblCinturaRequerido = new javax.swing.JLabel();
+        lblBicepDerechoRequerido = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -92,28 +131,24 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jLabel11.setText("Muslo: (cm)");
 
-        txtCintura.setText("                 ");
         txtCintura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCinturaActionPerformed(evt);
             }
         });
 
-        txtPecho.setText("                 ");
         txtPecho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPechoActionPerformed(evt);
             }
         });
 
-        txtTalla.setText("                 ");
         txtTalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTallaActionPerformed(evt);
             }
         });
 
-        txtPeso.setText("                 ");
         txtPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesoActionPerformed(evt);
@@ -125,21 +160,18 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
-        txtCadera.setText("                 ");
         txtCadera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCaderaActionPerformed(evt);
             }
         });
 
-        txtMuslo.setText("                 ");
         txtMuslo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMusloActionPerformed(evt);
             }
         });
 
-        txtBicepIzquierdo.setText("                 ");
         txtBicepIzquierdo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBicepIzquierdoActionPerformed(evt);
@@ -148,12 +180,25 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jLabel9.setText("Bicep derecho: (cm)");
 
-        txtBicepDerecho.setText("                 ");
         txtBicepDerecho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBicepDerechoActionPerformed(evt);
             }
         });
+
+        lblPesoRequerido.setText("Requerido");
+
+        lblBicepIzquierdo.setText("Requerido");
+
+        lblMusloRequerido.setText("Requerido");
+
+        lblTallaRequerido.setText("Requerido");
+
+        lblPechoRequerido.setText("Requerido");
+
+        lblCinturaRequerido.setText("Requerido");
+
+        lblBicepDerechoRequerido.setText("Requerido");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -163,65 +208,87 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCadera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMuslo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMuslo))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPecho))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPeso))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtTalla, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCintura, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtBicepIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCadera)))))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(txtBicepIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtBicepDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtCintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblMusloRequerido, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTallaRequerido, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPechoRequerido, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCinturaRequerido, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPesoRequerido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblBicepIzquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBicepDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblBicepDerechoRequerido, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPesoRequerido))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTallaRequerido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPechoRequerido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCinturaRequerido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBicepIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBicepDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBicepDerecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBicepIzquierdo)
+                    .addComponent(lblBicepDerechoRequerido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +296,8 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMuslo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMuslo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMusloRequerido))
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -239,14 +307,12 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jLabel14.setText("IRM:");
 
-        txtGrasa.setText("                 ");
         txtGrasa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGrasaActionPerformed(evt);
             }
         });
 
-        txtIRM.setText("                 ");
         txtIRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIRMActionPerformed(evt);
@@ -263,9 +329,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIRM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtGrasa, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(txtIRM))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -376,7 +442,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -447,10 +513,23 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         // TODO add your handling code here:
+        error="";
         Properties proper = new Properties();
         FileReader lector;
+        double peso = 0;
+        double talla = 0;
+        double bDer = 0;
+        double bIzq = 0;
+        double pecho = 0;
+        double cintura = 0;
+        double cadera = 0;
+        double muslo = 0;
+        double pantorilla = 0;
+        Integer grasa=0;
+        Integer irm=0;
+        
         //ESTO LO HAGO PARA LEER EL PROPERTIES
-         try {
+        try {
             lector = new FileReader("src\\util\\Bundle.properties");
             proper.load(lector);
         } catch (FileNotFoundException ex) {
@@ -458,7 +537,72 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
         }
-         JOptionPane.showMessageDialog(null,proper.getProperty("errorPeso"));
+       
+       if(validador.validarVacios(txtPeso,
+                               txtBicepDerecho,
+                               txtBicepIzquierdo,
+                               txtCintura,
+                               txtMuslo,
+                               txtPecho,
+                               txtTalla,
+                               lblPesoRequerido,
+                               lblBicepDerechoRequerido,
+                               lblBicepIzquierdo,
+                               lblCinturaRequerido,
+                               lblMusloRequerido,
+                               lblPechoRequerido,
+                               lblTallaRequerido)){
+       error+=validador.validarCamposdetxtaDoubles(txtPeso,proper.getProperty("errorPeso") );
+       error+=validador.validarCamposdetxtaDoubles(txtTalla,proper.getProperty("errorTalla"));
+       error+=validador.validarCamposdetxtaDoubles(txtPecho,proper.getProperty("errorPecho"));
+       error+=validador.validarCamposdetxtaDoubles(txtCintura,proper.getProperty("errorCintura"));
+       error+=validador.validarCamposdetxtaDoubles(txtBicepIzquierdo,proper.getProperty("errorBicepIzquierdo"));
+       error+=validador.validarCamposdetxtaDoubles(txtBicepDerecho,proper.getProperty("errorBicepDerecho"));
+       error+=validador.validarCamposdetxtaDoubles(txtMuslo,proper.getProperty("errorMuslo"));
+       
+       error+=validador.validarCamposdetxtaDoublesOpcionales(txtCadera,proper.getProperty("errorCadera"));
+       error+=validador.validarCamposdetxtaDoublesOpcionales(txtGrasa,proper.getProperty("errorGrasa"));
+       error+=validador.validarCamposdetxtaDoublesOpcionales(txtIRM,proper.getProperty("errorIRM"));
+       }
+       else {
+           error=proper.getProperty("errorVacios");
+       }
+        if (error.equals("")) {
+            try {
+                peso = Double.parseDouble(txtPeso.getText());
+                talla = Double.parseDouble(txtTalla.getText());
+                bDer = Double.parseDouble(txtBicepDerecho.getText());
+                bIzq = Double.parseDouble(txtBicepIzquierdo.getText());
+                pecho = Double.parseDouble(txtPecho.getText());
+                cintura = Double.parseDouble(txtCintura.getText());
+                cadera = Double.parseDouble(txtCadera.getText());
+                muslo = Double.parseDouble(txtMuslo.getText());
+                irm = Integer.parseInt(txtIRM.getText());
+                grasa = Integer.parseInt(txtGrasa.getText());
+                
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            ControladorDatosAntro cont = new ControladorDatosAntro();
+            Deportista d = new Deportista();
+            d.setIdDeportista(1);
+            MAntropometricas mat = new MAntropometricas();
+            mat.setBrazoDerecho((float)bDer);
+            mat.setBrazoIzquierdo((float)bIzq);
+            mat.setBrazoDerecho((float)bDer);
+            mat.setCadera((float)cadera);
+            mat.setCintura((float)cintura);
+            mat.setDeportista(d);
+            mat.setGrasaCorporal(grasa);
+            mat.setIrm(irm);
+            cont.insertarDatosAntropometricos(mat);
+            JOptionPane.showMessageDialog(null,proper.getProperty("almacenamientoExitoso"));
+
+
+        } else {
+            JOptionPane.showMessageDialog(this, error,proper.getProperty("errorRegistro"),JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnSiguienteMouseClicked
 
     private void txtPesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesoKeyTyped
@@ -530,6 +674,13 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblBicepDerechoRequerido;
+    private javax.swing.JLabel lblBicepIzquierdo;
+    private javax.swing.JLabel lblCinturaRequerido;
+    private javax.swing.JLabel lblMusloRequerido;
+    private javax.swing.JLabel lblPechoRequerido;
+    private javax.swing.JLabel lblPesoRequerido;
+    private javax.swing.JLabel lblTallaRequerido;
     private javax.swing.JTextField txtBicepDerecho;
     private javax.swing.JTextField txtBicepIzquierdo;
     private javax.swing.JTextField txtCadera;
