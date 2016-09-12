@@ -93,14 +93,15 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="btnRegistroRutina" min="-2" pref="172" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="929" max="32767" attributes="0"/>
-                      <Component id="btnRegistroDeportista1" min="-2" pref="172" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnRegistroDeportista1" min="-2" pref="172" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnRegistroRutina" min="-2" pref="172" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
           </Group>
@@ -109,18 +110,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="clockFace1" min="-2" pref="102" max="-2" attributes="0"/>
-                  <EmptySpace pref="227" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                   <Component id="btnRegistroRutina" min="-2" pref="115" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <Component id="btnRegistroDeportista1" min="-2" pref="115" max="-2" attributes="0"/>
+                  <EmptySpace pref="70" max="32767" attributes="0"/>
                   <Component id="jToolBar1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                      <Component id="btnRegistroDeportista1" min="-2" pref="115" max="-2" attributes="0"/>
-                      <EmptySpace pref="356" max="32767" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,7 +138,7 @@
         <Component class="org.edisoncor.gui.button.ButtonTransluceIcon" name="btnRegistroRutina">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/Img_Icono_rutina.jpg"/>
+              <Image iconType="3" name="/img/Img_Icono_deportista.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="buttonTransluceIcon1"/>
           </Properties>
@@ -153,7 +149,7 @@
         <Component class="org.edisoncor.gui.button.ButtonTransluceIcon" name="btnRegistroDeportista1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/Img_Icono_deportista.jpg"/>
+              <Image iconType="3" name="/img/Img_Icono_rutina.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="buttonTransluceIcon1"/>
           </Properties>

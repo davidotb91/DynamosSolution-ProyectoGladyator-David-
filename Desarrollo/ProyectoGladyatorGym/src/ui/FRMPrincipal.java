@@ -44,7 +44,7 @@ public class FRMPrincipal extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
-        btnRegistroRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_rutina.jpg"))); // NOI18N
+        btnRegistroRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_deportista.jpg"))); // NOI18N
         btnRegistroRutina.setText("buttonTransluceIcon1");
         btnRegistroRutina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -52,7 +52,7 @@ public class FRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnRegistroDeportista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_deportista.jpg"))); // NOI18N
+        btnRegistroDeportista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_rutina.jpg"))); // NOI18N
         btnRegistroDeportista1.setText("buttonTransluceIcon1");
         btnRegistroDeportista1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -76,28 +76,25 @@ public class FRMPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRegistroRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(236, 236, 236))
-            .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
-                    .addContainerGap(929, Short.MAX_VALUE)
-                    .addComponent(btnRegistroDeportista1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(246, 246, 246)))
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                        .addComponent(btnRegistroDeportista1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(170, 170, 170))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                        .addComponent(btnRegistroRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(179, 179, 179))))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
                 .addComponent(clockFace1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                .addGap(87, 87, 87)
                 .addComponent(btnRegistroRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(53, 53, 53)
+                .addComponent(btnRegistroDeportista1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(114, 114, 114))
-            .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                    .addGap(187, 187, 187)
-                    .addComponent(btnRegistroDeportista1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(356, Short.MAX_VALUE)))
         );
 
         jMenu1.setText("Deportista");
