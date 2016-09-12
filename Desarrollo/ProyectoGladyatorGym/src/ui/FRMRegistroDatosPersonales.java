@@ -31,9 +31,6 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        basicCalendarHeaderHandler1 = new org.jdesktop.swingx.plaf.basic.BasicCalendarHeaderHandler();
-        glossPainter1 = new org.jdesktop.swingx.painter.GlossPainter();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -512,11 +509,8 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdesktop.swingx.plaf.basic.BasicCalendarHeaderHandler basicCalendarHeaderHandler1;
-    private org.jdesktop.swingx.painter.GlossPainter glossPainter1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
