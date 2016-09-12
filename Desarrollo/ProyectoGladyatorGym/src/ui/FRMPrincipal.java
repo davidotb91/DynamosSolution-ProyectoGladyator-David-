@@ -33,7 +33,8 @@ public class FRMPrincipal extends javax.swing.JFrame {
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         jToolBar1 = new javax.swing.JToolBar();
         clockFace1 = new org.edisoncor.gui.varios.ClockFace();
-        buttonTransluceIcon1 = new org.edisoncor.gui.button.ButtonTransluceIcon();
+        btnRegistroRutina = new org.edisoncor.gui.button.ButtonTransluceIcon();
+        btnRegistroDeportista1 = new org.edisoncor.gui.button.ButtonTransluceIcon();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -42,15 +43,23 @@ public class FRMPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FONDOPrincipal.jpg"))); // NOI18N
+        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FramePrincipal.jpg"))); // NOI18N
 
         jToolBar1.setRollover(true);
 
-        buttonTransluceIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FOMDO.jpg"))); // NOI18N
-        buttonTransluceIcon1.setText("buttonTransluceIcon1");
-        buttonTransluceIcon1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRegistroRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_rutina.jpg"))); // NOI18N
+        btnRegistroRutina.setText("buttonTransluceIcon1");
+        btnRegistroRutina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonTransluceIcon1MouseClicked(evt);
+                btnRegistroRutinaMouseClicked(evt);
+            }
+        });
+
+        btnRegistroDeportista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_deportista.jpg"))); // NOI18N
+        btnRegistroDeportista1.setText("buttonTransluceIcon1");
+        btnRegistroDeportista1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistroDeportista1MouseClicked(evt);
             }
         });
 
@@ -65,23 +74,33 @@ public class FRMPrincipal extends javax.swing.JFrame {
                         .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(buttonTransluceIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 867, Short.MAX_VALUE)
+                        .addGap(187, 1226, Short.MAX_VALUE)
                         .addComponent(clockFace1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnRegistroRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(236, 236, 236))
+            .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                    .addContainerGap(929, Short.MAX_VALUE)
+                    .addComponent(btnRegistroDeportista1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(246, 246, 246)))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
-                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clockFace1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(buttonTransluceIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 399, Short.MAX_VALUE)
+                .addComponent(clockFace1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                .addComponent(btnRegistroRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(114, 114, 114))
+            .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                    .addGap(187, 187, 187)
+                    .addComponent(btnRegistroDeportista1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(356, Short.MAX_VALUE)))
         );
 
         jMenu1.setText("Deportista");
@@ -116,11 +135,15 @@ public class FRMPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonTransluceIcon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonTransluceIcon1MouseClicked
+    private void btnRegistroRutinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroRutinaMouseClicked
         // TODO add your handling code here:
         FRMRegistroDatosPersonales frmDatosPersonal = new FRMRegistroDatosPersonales();
         frmDatosPersonal.setVisible(true);
-    }//GEN-LAST:event_buttonTransluceIcon1MouseClicked
+    }//GEN-LAST:event_btnRegistroRutinaMouseClicked
+
+    private void btnRegistroDeportista1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroDeportista1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistroDeportista1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -159,7 +182,8 @@ public class FRMPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.util.BrightPassFilter brightPassFilter1;
-    private org.edisoncor.gui.button.ButtonTransluceIcon buttonTransluceIcon1;
+    private org.edisoncor.gui.button.ButtonTransluceIcon btnRegistroDeportista1;
+    private org.edisoncor.gui.button.ButtonTransluceIcon btnRegistroRutina;
     private org.edisoncor.gui.varios.ClockFace clockFace1;
     private org.jdesktop.el.CompositeELResolver compositeELResolver1;
     private com.sun.animation.effects.CompositeEffect compositeEffect1;
