@@ -27,9 +27,6 @@ public class FRMPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        compositeELResolver1 = new org.jdesktop.el.CompositeELResolver();
-        compositeEffect1 = new com.sun.animation.effects.CompositeEffect();
-        brightPassFilter1 = new org.edisoncor.gui.util.BrightPassFilter();
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         jToolBar1 = new javax.swing.JToolBar();
         clockFace1 = new org.edisoncor.gui.varios.ClockFace();
@@ -181,12 +178,9 @@ public class FRMPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.util.BrightPassFilter brightPassFilter1;
     private org.edisoncor.gui.button.ButtonTransluceIcon btnRegistroDeportista1;
     private org.edisoncor.gui.button.ButtonTransluceIcon btnRegistroRutina;
     private org.edisoncor.gui.varios.ClockFace clockFace1;
-    private org.jdesktop.el.CompositeELResolver compositeELResolver1;
-    private com.sun.animation.effects.CompositeEffect compositeEffect1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
