@@ -61,6 +61,28 @@ public class Deportista  implements java.io.Serializable {
        this.direccion = direccion;
        this.MAntropometricases = MAntropometricases;
     }
+    
+    public Deportista(String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String genero, String cedula, String correo, Date fechaNacimiento, int edad, String facebook, String celular, String telefonoFijo, String direccion) {
+       this.primerNombre = primerNombre;
+       this.segundoNombre = segundoNombre;
+       this.apellidoPaterno = apellidoPaterno;
+       this.apellidoMaterno = apellidoMaterno;
+       this.genero = genero;
+       this.cedula = cedula;
+       this.correo = correo;
+       this.fechaNacimiento = fechaNacimiento;
+       this.edad = edad;
+       this.facebook = facebook;
+       this.celular = celular;
+       this.telefonoFijo = telefonoFijo;
+       this.direccion = direccion;
+    }
+
+    public Deportista(String text, String text0, String text1, String text2, String obtenerGenero, String text3, String text4, Date date, int calcularEdad, String text5, String text6, String text7) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
    
     public Integer getIdDeportista() {
         return this.idDeportista;
@@ -167,6 +189,13 @@ public class Deportista  implements java.io.Serializable {
     public void setMAntropometricases(Set MAntropometricases) {
         this.MAntropometricases = MAntropometricases;
     }
+
+    @Override
+    public String toString() {
+        return "Deportista{" + "idDeportista=" + idDeportista + ", primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", genero=" + genero + ", cedula=" + cedula + ", correo=" + correo + ", fechaNacimiento=" + fechaNacimiento + ", edad=" + edad + ", facebook=" + facebook + ", celular=" + celular + ", telefonoFijo=" + telefonoFijo + ", direccion=" + direccion + '}';
+    }
+
+
 
 
 

@@ -81,7 +81,7 @@
         <Container class="jcMousePanel.jcMousePanel" name="jcMousePanel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/FONDOPrincipal.jpg"/>
+              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO_panel_superior.jpg"/>
             </Property>
           </Properties>
 
@@ -387,7 +387,7 @@
         <Container class="jcMousePanel.jcMousePanel" name="jcMousePanel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/FONDOPrincipal.jpg"/>
+              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO_panel_central.jpg"/>
             </Property>
           </Properties>
 
@@ -473,7 +473,7 @@
         <Container class="jcMousePanel.jcMousePanel" name="jcMousePanel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/FONDOPrincipal.jpg"/>
+              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO_panel_inferior.jpg"/>
             </Property>
           </Properties>
 

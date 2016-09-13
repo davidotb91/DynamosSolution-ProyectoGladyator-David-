@@ -24,13 +24,13 @@ import util.Validaciones;
 public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
      private String error;
      Validaciones validador = new Validaciones();
-     
+     Deportista deportista = new Deportista();
     
 
     /**
      * Creates new form FRMRegistroDatosAntropometricos
      */
-    public FRMRegistroDatosAntropometricos() {
+    public FRMRegistroDatosAntropometricos(Deportista deportista) {
         initComponents();
         error="";
         lblBicepDerechoRequerido.setVisible(false);
@@ -40,6 +40,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         lblPechoRequerido.setVisible(false);
         lblPesoRequerido.setVisible(false);
         lblTallaRequerido.setVisible(false);
+        this.deportista= deportista;
+        System.out.print("Deportista: "+ deportista.getIdDeportista());
+        
     }
     public boolean validar(){
         if(txtBicepDerecho.getText().equals("")||txtBicepIzquierdo.getText().equals("")||txtCintura.getText().equals("")||txtMuslo.getText().equals("")||txtPecho.getText().equals("")||txtPeso.getText().equals("")||txtTalla.getText().equals("")){
@@ -120,7 +123,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         jLabel1.setMaximumSize(new java.awt.Dimension(25, 10));
         jLabel1.setMinimumSize(new java.awt.Dimension(25, 10));
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FONDOPrincipal.jpg"))); // NOI18N
+        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_superior.jpg"))); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel19.setText("Peso: (Kg)");
@@ -329,7 +332,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jPanel1.setName(""); // NOI18N
 
-        jcMousePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FONDOPrincipal.jpg"))); // NOI18N
+        jcMousePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_central.jpg"))); // NOI18N
 
         txtIRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,7 +392,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jPanel3.setName(""); // NOI18N
 
-        jcMousePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FONDOPrincipal.jpg"))); // NOI18N
+        jcMousePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_inferior.jpg"))); // NOI18N
 
         jLabel13.setText("Metas:");
 
@@ -608,7 +611,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
             ControladorDatosAntro cont = new ControladorDatosAntro();
             Deportista d = new Deportista();
-            d.setIdDeportista(1);
+            d.setIdDeportista(deportista.getIdDeportista());
             MAntropometricas mat = new MAntropometricas();
             mat.setBrazoDerecho((float)bDer);
             mat.setBrazoIzquierdo((float)bIzq);
@@ -693,7 +696,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FRMRegistroDatosAntropometricos().setVisible(true);
+                //new FRMRegistroDatosAntropometricos().setVisible(true);
             }
         });
     }
