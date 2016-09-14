@@ -346,8 +346,10 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jLabel12.setText("Grasa Corporal: ");
 
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jLabel14.setText("IRM:");
 
         javax.swing.GroupLayout jcMousePanel3Layout = new javax.swing.GroupLayout(jcMousePanel3);
@@ -622,7 +624,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             mat.setGrasaCorporal(grasa);
             mat.setIrm(irm);
             cont.insertarDatosAntropometricos(mat);
-            JOptionPane.showMessageDialog(null,proper.getProperty("almacenamientoExitoso"));
+            JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
+            System.out.print("Deportista: "+ deportista.getIdDeportista());
+        
 
 
         } else {

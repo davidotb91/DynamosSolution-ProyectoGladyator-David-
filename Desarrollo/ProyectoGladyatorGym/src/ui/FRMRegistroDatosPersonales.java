@@ -7,7 +7,13 @@ package ui;
 
 import bl.ControladorDeportista;
 import dl.Deportista;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Date;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import util.Validaciones;
 
@@ -58,6 +64,19 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
         lblNombre7.setVisible(false);
         lblNombre8.setVisible(false);
         lblNombre9.setVisible(false);
+    }
+    
+     public void ponerTrue(){
+        lblNombre.setVisible(true);
+        lblNombre1.setVisible(true);
+        lblNombre2.setVisible(true);
+        lblNombre3.setVisible(true);
+        lblNombre4.setVisible(true);
+        lblNombre5.setVisible(true);
+        lblNombre6.setVisible(true);
+        lblNombre7.setVisible(true);
+        lblNombre8.setVisible(true);
+        lblNombre9.setVisible(true);
     }
     
     public boolean validaciones(){
@@ -158,7 +177,8 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
         lblNombre8 = new javax.swing.JLabel();
         lblNombre9 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Registro de Datos Personales");
 
         jLabel1.setBackground(new java.awt.Color(51, 204, 255));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -171,7 +191,8 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
 
         jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameDATOS_USUARIO_ambos paneles.jpg"))); // NOI18N
 
-        btnSiguiente.setText("Siguiente");
+        btnSiguiente.setText("SIGUIENTE");
+        btnSiguiente.setToolTipText("");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSiguienteActionPerformed(evt);
@@ -188,7 +209,7 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
 
         jLabel24.setText("Correo:");
 
-        btnSalir.setText("  Salir  ");
+        btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -235,11 +256,17 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
             }
         });
 
-        lblNombre6.setText("Obligatorio");
+        lblNombre6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre6.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre6.setText("*");
 
-        lblNombre5.setText("Obligatorio");
+        lblNombre5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre5.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre5.setText("*");
 
-        lblNombre4.setText("Obligatorio");
+        lblNombre4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre4.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre4.setText("*");
 
         javax.swing.GroupLayout jcMousePanel1Layout = new javax.swing.GroupLayout(jcMousePanel1);
         jcMousePanel1.setLayout(jcMousePanel1Layout);
@@ -247,43 +274,39 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCorreo))
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFacebook))
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTMovil))
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDireccionn))
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
-                                .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)))))
                 .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                    .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtCorreo))
+                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtFacebook))
+                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtTMovil))
+                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtDireccionn))
+                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtTFijo, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(148, 148, 148))
+                        .addGap(54, 54, 54)))
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombre5)
+                    .addComponent(lblNombre4)
+                    .addComponent(lblNombre6)
                     .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre5)
-                            .addComponent(lblNombre6)
-                            .addComponent(lblNombre4))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(79, 79, 79)
+                        .addComponent(btnSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,11 +334,11 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTFijo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNombre4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSiguiente)
-                    .addComponent(btnSalir))
-                .addContainerGap())
+                    .addComponent(btnSalir)
+                    .addComponent(btnSiguiente))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -392,124 +415,154 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
 
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
 
-        lblNombre.setText("Obligatorio");
+        lblNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre.setText("*");
 
-        lblNombre1.setText("Obligatorio");
+        lblNombre1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre1.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre1.setText("*");
 
-        lblNombre2.setText("Obligatorio");
+        lblNombre2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre2.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre2.setText("*");
 
-        lblNombre3.setText("Obligatorio");
+        lblNombre3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre3.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre3.setText("*");
 
-        lblNombre7.setText("Obligatorio");
+        lblNombre7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre7.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre7.setText("*");
 
-        lblNombre8.setText("Obligatorio");
-
-        lblNombre9.setText("Obligatorio");
+        lblNombre9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblNombre9.setForeground(new java.awt.Color(255, 0, 0));
+        lblNombre9.setText("*");
 
         javax.swing.GroupLayout jcMousePanel2Layout = new javax.swing.GroupLayout(jcMousePanel2);
         jcMousePanel2.setLayout(jcMousePanel2Layout);
         jcMousePanel2Layout.setHorizontalGroup(
             jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrimerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSegundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
                         .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre7)
+                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtSegundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(txtPrimerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel2Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(txtAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(4, 4, 4)
+                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNombre8)
+                                    .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                        .addGap(58, 58, 58)
+                                        .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(lblNombre3)
                             .addComponent(lblNombre)
                             .addComponent(lblNombre1)
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(lblNombre2)
-                                .addGap(45, 45, 45)
-                                .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblNombre8)))
+                            .addComponent(lblNombre7)
+                            .addComponent(lblNombre2)))
                     .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblNombre9)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel15)
+                        .addGap(73, 73, 73)
+                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNombre9)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         jcMousePanel2Layout.setVerticalGroup(
             jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPrimerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNombre)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(txtSegundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNombre3))
+                                .addGap(18, 18, 18)
+                                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNombre2))
+                                .addGap(18, 18, 18)))
                         .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtPrimerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblNombre)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNombre7))
+                        .addGap(18, 18, 18)
                         .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSegundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombre1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombre3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(7, 7, 7))
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel2Layout.createSequentialGroup()
-                        .addComponent(lblNombre2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel2Layout.createSequentialGroup()
-                        .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)))
-                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblNombre7))
-                    .addComponent(dtcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombre9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(lblNombre8)
                 .addGap(18, 18, 18)
                 .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre9))
-                .addGap(9, 9, 9)
-                .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre8))
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -520,7 +573,9 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jcMousePanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jcMousePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -548,35 +603,65 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        ControladorDeportista Controla = new ControladorDeportista();
-       // Date fecha = new Date(1991, 12, 22);
-//       Deportista deport1 = new Deportista("Tatiana","Nicole","Recalde","Chavez",obtenerGenero(),"1710737922",
-//                                                "kathyta45@hotmail.com",dtcFechaNacimiento.getDate(),calcularEdad(),"KathyLiz","0995010359","022662012",
-//                                                "VillaFlora-Rodrigo de Chavez Oe-254");
-        try{
-        if (validarCampos()){
-            //validarCampos();
-//            calcularEdad();
-//            obtenerGenero();
+       String error="";
+        Properties proper = new Properties();
+        FileReader lector;    
+        
+        try {
+            lector = new FileReader("src\\util\\Bundle.properties");
+            proper.load(lector);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       
+        if(txtPrimerNombre.getText().equals("") || txtSegundoNombre.getText().equals("") || txtAMaterno.getText().equals("")
+           || txtAPaterno.getText().equals("") || txtCedula.getText().equals("")|| txtDireccionn.getText().equals("") ||
+           txtTFijo.getText().equals("")||txtTMovil.getText().equals("")){
+            error+="Los campos con (*) son OBLIGATORIOS";
+            //JOptionPane.showMessageDialog(null, error);
+            ponerTrue();
+        
+        }
+        else{
+            ponerFalse();
+        error+= validar.validarSoloLetras(txtPrimerNombre.getText(),proper.getProperty("errorPrimerNombre"));
+        error+= validar.validarSoloLetras(txtSegundoNombre.getText(),proper.getProperty("errorSegundoNombre"));
+        error+= validar.validarSoloLetras(txtAPaterno.getText(),proper.getProperty("errorAPaterno"));
+        error+= validar.validarSoloLetras(txtAMaterno.getText(),proper.getProperty("errorAMaterno"));                
+        error+=validar.validarSoloNumeros(txtCedula.getText(), proper.getProperty("errorCedula")); 
+//        error+=validar.validarCorreo(txtCorreo.getText(),proper.getProperty("errorCorreo"));
+        error+= validar.validarSoloLetras(txtFacebook.getText(),proper.getProperty("errorFacebook")); 
+        error+=validar.validarSoloNumeros(txtTFijo.getText(), proper.getProperty("errorTfijo"));
+        error+=validar.validarSoloNumeros(txtTMovil.getText(), proper.getProperty("errorTmovil"));
+        }
+        
+        if(error.equals("")){
+            try{
+             edad =  calcularEdad();
+             genero=  obtenerGenero();
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+             
+            ControladorDeportista Controla = new ControladorDeportista();
             Deportista deport = new Deportista(txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtAPaterno.getText(),
-                                            txtAMaterno.getText(),obtenerGenero(),txtCedula.getText(),txtCorreo.getText(),
-                                            dtcFechaNacimiento.getDate(),calcularEdad(),txtFacebook.getText(),txtTMovil.getText(),txtTFijo.getText(),
+                                            txtAMaterno.getText(),genero,txtCedula.getText(),txtCorreo.getText(),
+                                            dtcFechaNacimiento.getDate(),edad,txtFacebook.getText(),txtTMovil.getText(),txtTFijo.getText(),
                                             txtDireccionn.getText());
             
             Controla.insertarDeportista(deport);
+            JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
             FRMRegistroDatosAntropometricos frmAntro = new FRMRegistroDatosAntropometricos(deport);
             frmAntro.setVisible(true);
-            this.setVisible(false);
+            this.setVisible(false);            
         }
+         else {
+            JOptionPane.showMessageDialog(this, error,proper.getProperty("errorRegistro"),JOptionPane.ERROR_MESSAGE);
         }
-        catch(Exception e){
-            System.err.print(e);
-            JOptionPane.showMessageDialog(null,"Error al guardar");
-        }
-
-       
-            
-        
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void txtPrimerNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrimerNombreActionPerformed
@@ -584,7 +669,67 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrimerNombreActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        validaciones();
+    System.exit(0);
+////        String error="";
+////        Properties proper = new Properties();
+////        FileReader lector;    
+////        
+////        try {
+////            lector = new FileReader("src\\util\\Bundle.properties");
+////            proper.load(lector);
+////        } catch (FileNotFoundException ex) {
+////            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
+////        } catch (IOException ex) {
+////            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
+////        }
+////        
+////       
+////        if(txtPrimerNombre.getText().equals("") || txtSegundoNombre.getText().equals("") || txtAMaterno.getText().equals("")
+////           || txtAPaterno.getText().equals("") || txtCedula.getText().equals("")|| txtDireccionn.getText().equals("") ||
+////           txtTFijo.getText().equals("")||txtTMovil.getText().equals("")){
+////            
+////            JOptionPane.showMessageDialog(null, "Los campos con (*) son OBLIGATORIOS");
+////            ponerTrue();
+////        
+////        }
+////        else{
+////            ponerFalse();
+////        error+= validar.validarSoloLetras(txtPrimerNombre.getText(),proper.getProperty("errorPrimerNombre"));
+////        error+= validar.validarSoloLetras(txtSegundoNombre.getText(),proper.getProperty("errorSegundoNombre"));
+////        error+= validar.validarSoloLetras(txtAPaterno.getText(),proper.getProperty("errorAPaterno"));
+////        error+= validar.validarSoloLetras(txtAMaterno.getText(),proper.getProperty("errorAMaterno"));                
+////        error+=validar.validarSoloNumeros(txtCedula.getText(), proper.getProperty("errorCedula")); 
+//////        error+=validar.validarCorreo(txtCorreo.getText(),proper.getProperty("errorCorreo"));
+////        error+= validar.validarSoloLetras(txtFacebook.getText(),proper.getProperty("errorFacebook")); 
+////        error+=validar.validarSoloNumeros(txtTFijo.getText(), proper.getProperty("errorTfijo"));
+////        error+=validar.validarSoloNumeros(txtTMovil.getText(), proper.getProperty("errorTmovil"));
+////        }
+////        
+////        if(error.equals("")){
+////            try{
+////             edad =  calcularEdad();
+////             genero=  obtenerGenero();
+////            }
+////            catch (Exception e){
+////                System.out.println(e);
+////            }
+////             
+////            ControladorDeportista Controla = new ControladorDeportista();
+////            Deportista deport = new Deportista(txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtAPaterno.getText(),
+////                                            txtAMaterno.getText(),genero,txtCedula.getText(),txtCorreo.getText(),
+////                                            dtcFechaNacimiento.getDate(),edad,txtFacebook.getText(),txtTMovil.getText(),txtTFijo.getText(),
+////                                            txtDireccionn.getText());
+////            
+////            Controla.insertarDeportista(deport);
+////            JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
+////            FRMRegistroDatosAntropometricos frmAntro = new FRMRegistroDatosAntropometricos(deport);
+////            frmAntro.setVisible(true);
+////            this.setVisible(false);            
+////        }
+////         else {
+////            JOptionPane.showMessageDialog(this, error,proper.getProperty("errorRegistro"),JOptionPane.ERROR_MESSAGE);
+////        }
+////
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtSegundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSegundoNombreActionPerformed

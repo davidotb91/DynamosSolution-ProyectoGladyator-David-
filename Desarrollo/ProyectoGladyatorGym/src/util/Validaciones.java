@@ -204,30 +204,35 @@ public class Validaciones {
         lblCampo8Obligatorio.setVisible(false);
 
     }
-    public void validarSoloLetras(String cadena, String campo){
+    public String validarSoloLetras(String cadena, String proper){
      Pattern pat1 = Pattern.compile("[0-9]");
      Matcher mat1 = pat1.matcher(cadena);
      if (mat1.find()) {
-            System.out.println("La cadena TIENE dígitos");
-            JOptionPane.showMessageDialog(null, "EL CAMPO " + campo+" NO DEBE CONTENER DÍGITOS");
-     }         
+          return proper + "\n";
+     }   
+     else{
+         return "";
+     }
     }
     
-    public void validarCorreo(String correo, String campo){
+    public String validarCorreo(String correo, String proper){
        Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
        Matcher mat = pat.matcher(correo);
        if(mat.find()){
-          System.out.println("Correo Válido");
+          return "";
        }else{
-          JOptionPane.showMessageDialog(null, "EL CAMPO " + campo +"ES INCORRECTO");
+          return proper + "\n";
         }        
     }
     
-    public void validarSoloNumeros(String cadena, String campo){
+    public String validarSoloNumeros(String cadena, String proper){
      Pattern pat = Pattern.compile("[a-zA-Z]");
      Matcher mat = pat.matcher(cadena);
      if (mat.find()) {
-         JOptionPane.showMessageDialog(null, "EL CAMPO " + campo +" NO PUEDE CONTENER LETRAS");
+         return proper + "\n";
      } 
+     else{
+         return "";
+     }
     }
 }

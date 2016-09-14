@@ -27,6 +27,5 @@ public class ControladorDatosAntro {
         session.save(medidas);
         tx.commit();
         session.close();
-        JOptionPane.showMessageDialog(null,"Insertado correctamente.");
     } 
 }
