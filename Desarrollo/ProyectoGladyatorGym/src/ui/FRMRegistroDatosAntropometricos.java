@@ -622,7 +622,11 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             mat.setCintura((float)cintura);
             mat.setDeportista(d);
             mat.setGrasaCorporal(grasa);
+            mat.setPecho((float)pecho);
             mat.setIrm(irm);
+            mat.setMuslo((float)muslo);
+            mat.setPeso((float)peso);
+            mat.setTalla((float)talla);
             cont.insertarDatosAntropometricos(mat);
             JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
             System.out.print("Deportista: "+ deportista.getIdDeportista());
