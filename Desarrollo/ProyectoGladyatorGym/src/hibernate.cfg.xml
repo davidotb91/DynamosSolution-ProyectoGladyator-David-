@@ -4,12 +4,22 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdd_gladiatorgym</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdd_gladiator_gym?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.password">mysql</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="dl/MAntropometricas.hbm.xml"/>
     <mapping resource="dl/Deportista.hbm.xml"/>
+    <mapping resource="dl/Rutina.hbm.xml"/>
+    <mapping resource="dl/Metas.hbm.xml"/>
+    <mapping resource="dl/Ejercicio.hbm.xml"/>
+    <mapping resource="dl/Usuario.hbm.xml"/>
+    <mapping resource="dl/Planificacion.hbm.xml"/>
+    <mapping resource="dl/Acceso.hbm.xml"/>
+    <mapping resource="dl/MAntropometricas.hbm.xml"/>
+    <mapping resource="dl/Musculo.hbm.xml"/>
+    <mapping resource="dl/Perfil.hbm.xml"/>
+    <mapping resource="dl/Impedimentos.hbm.xml"/>
+    <mapping resource="dl/Pago.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

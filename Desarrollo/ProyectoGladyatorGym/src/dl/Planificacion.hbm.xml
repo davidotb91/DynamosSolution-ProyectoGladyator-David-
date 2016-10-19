@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/10/2016 17:26:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dl.Planificacion" table="planificacion" catalog="bdd_gladiator_gym" optimistic-lock="version">
+        <id name="idPlanificacion" type="java.lang.Integer">
+            <column name="ID_PLANIFICACION" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="MAntropometricas" class="dl.MAntropometricas" fetch="select">
+            <column name="ID_M_ANTROPOMRTRICAS" />
+        </many-to-one>
+        <many-to-one name="metas" class="dl.Metas" fetch="select">
+            <column name="ID_META" />
+        </many-to-one>
+        <property name="intensidad" type="int">
+            <column name="INTENSIDAD" not-null="true" />
+        </property>
+        <property name="objetivo" type="string">
+            <column name="OBJETIVO" length="70" not-null="true" />
+        </property>
+        <property name="numMaxDias" type="int">
+            <column name="NUM_MAX_DIAS" not-null="true" />
+        </property>
+        <set name="rutinas" table="rutina" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PLANIFICACION" />
+            </key>
+            <one-to-many class="dl.Rutina" />
+        </set>
+    </class>
+</hibernate-mapping>

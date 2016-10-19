@@ -6,7 +6,14 @@
 package ui.temporales;
 
 import bl.ControladorDeportista;
+import dl.Deportista;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -15,17 +22,58 @@ import javax.swing.DefaultListModel;
 public class FRMMostrarDeportistas extends javax.swing.JFrame {
     DefaultListModel dlm;
     ControladorDeportista controladordep;
+    List <Deportista> listaDeportistas;
+    private TableRowSorter trsFiltro;
     /**
      * Creates new form FRMMostrarDeportistas
      */
     public FRMMostrarDeportistas() {
         initComponents();
+      
         controladordep = new ControladorDeportista();
-        dlm = new DefaultListModel ();
         
-        dlm = controladordep.mostrarDeportistas();
-        listaDeportistas.setModel(dlm);
+//        dlm = new DefaultListModel ();
+         
+//        dlm = controladordep.mostrarDeportistas();
+       
+//        listad.setModel(dlm);
+//        System.out.println("Indices: " + dlm.getSize());
+        listaDeportistas = controladordep.mostrarDeportistas1();
+        ponerEnTabla();
+
     }
+    
+    
+    public void ponerEnTabla(){
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object [] fila=new Object[6];
+  
+        for (Deportista listaDeportista : listaDeportistas) {
+            
+            fila[0]= listaDeportista.getCedula();
+            fila[1]=listaDeportista.getPrimerNombre();
+            fila[2]=listaDeportista.getApellidoPaterno();
+            modelo.addRow(fila);
+            tblDatos.setModel(modelo);
+          }
+     
+    }
+    
+
+    public void filtro() {
+        int columnaABuscar = 0;
+        if (cmbFiltro.getSelectedItem() == "Cédula") {
+            columnaABuscar = 0;
+        }
+        if (cmbFiltro.getSelectedItem().toString().equals("Nombre")) {
+            columnaABuscar = 1;
+        }
+        if (cmbFiltro.getSelectedItem().toString().equals("Apellido")) {
+            columnaABuscar = 2;
+        }
+    trsFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,36 +85,82 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaDeportistas = new javax.swing.JList<>();
+        tblDatos = new javax.swing.JTable();
+        cmbFiltro = new javax.swing.JComboBox<>();
+        txtFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        listaDeportistas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cédula", "Nombre", "Apellido"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(listaDeportistas);
+        jScrollPane1.setViewportView(tblDatos);
+
+        cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Cédula", "Apellido" }));
+
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(224, 224, 224)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtFiltroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyTyped
+        // TODO add your handling code here:
+        txtFiltro.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtFiltro.getText());
+                txtFiltro.setText(cadena);
+                repaint();
+                filtro();
+            }
+        });
+        trsFiltro = new TableRowSorter(tblDatos.getModel());
+        tblDatos.setRowSorter(trsFiltro);
+    }//GEN-LAST:event_txtFiltroKeyTyped
 
     /**
      * @param args the command line arguments
@@ -104,8 +198,10 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmbFiltro;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaDeportistas;
+    private javax.swing.JTable tblDatos;
+    private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }
 

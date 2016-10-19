@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/10/2016 17:26:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dl.Ejercicio" table="ejercicio" catalog="bdd_gladiator_gym" optimistic-lock="version">
+        <id name="idEjercicio" type="java.lang.Integer">
+            <column name="ID_EJERCICIO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="musculo" class="dl.Musculo" fetch="select">
+            <column name="ID_MUSCULO" />
+        </many-to-one>
+        <property name="descripcionEjercicio" type="string">
+            <column name="DESCRIPCION_EJERCICIO" length="70" not-null="true" />
+        </property>
+        <property name="imagenMaquina" type="string">
+            <column name="IMAGEN_MAQUINA" length="200" not-null="true" />
+        </property>
+        <property name="numeroSeries" type="int">
+            <column name="NUMERO_SERIES" not-null="true" />
+        </property>
+        <property name="numeroRepeticiones" type="int">
+            <column name="NUMERO_REPETICIONES" not-null="true" />
+        </property>
+        <property name="peso" type="float">
+            <column name="PESO" precision="12" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

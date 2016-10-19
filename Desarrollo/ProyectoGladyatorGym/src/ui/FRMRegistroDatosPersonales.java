@@ -320,10 +320,11 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDireccionn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre6))
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombre6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDireccionn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -670,66 +671,6 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
     System.exit(0);
-////        String error="";
-////        Properties proper = new Properties();
-////        FileReader lector;    
-////        
-////        try {
-////            lector = new FileReader("src\\util\\Bundle.properties");
-////            proper.load(lector);
-////        } catch (FileNotFoundException ex) {
-////            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
-////        } catch (IOException ex) {
-////            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
-////        }
-////        
-////       
-////        if(txtPrimerNombre.getText().equals("") || txtSegundoNombre.getText().equals("") || txtAMaterno.getText().equals("")
-////           || txtAPaterno.getText().equals("") || txtCedula.getText().equals("")|| txtDireccionn.getText().equals("") ||
-////           txtTFijo.getText().equals("")||txtTMovil.getText().equals("")){
-////            
-////            JOptionPane.showMessageDialog(null, "Los campos con (*) son OBLIGATORIOS");
-////            ponerTrue();
-////        
-////        }
-////        else{
-////            ponerFalse();
-////        error+= validar.validarSoloLetras(txtPrimerNombre.getText(),proper.getProperty("errorPrimerNombre"));
-////        error+= validar.validarSoloLetras(txtSegundoNombre.getText(),proper.getProperty("errorSegundoNombre"));
-////        error+= validar.validarSoloLetras(txtAPaterno.getText(),proper.getProperty("errorAPaterno"));
-////        error+= validar.validarSoloLetras(txtAMaterno.getText(),proper.getProperty("errorAMaterno"));                
-////        error+=validar.validarSoloNumeros(txtCedula.getText(), proper.getProperty("errorCedula")); 
-//////        error+=validar.validarCorreo(txtCorreo.getText(),proper.getProperty("errorCorreo"));
-////        error+= validar.validarSoloLetras(txtFacebook.getText(),proper.getProperty("errorFacebook")); 
-////        error+=validar.validarSoloNumeros(txtTFijo.getText(), proper.getProperty("errorTfijo"));
-////        error+=validar.validarSoloNumeros(txtTMovil.getText(), proper.getProperty("errorTmovil"));
-////        }
-////        
-////        if(error.equals("")){
-////            try{
-////             edad =  calcularEdad();
-////             genero=  obtenerGenero();
-////            }
-////            catch (Exception e){
-////                System.out.println(e);
-////            }
-////             
-////            ControladorDeportista Controla = new ControladorDeportista();
-////            Deportista deport = new Deportista(txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtAPaterno.getText(),
-////                                            txtAMaterno.getText(),genero,txtCedula.getText(),txtCorreo.getText(),
-////                                            dtcFechaNacimiento.getDate(),edad,txtFacebook.getText(),txtTMovil.getText(),txtTFijo.getText(),
-////                                            txtDireccionn.getText());
-////            
-////            Controla.insertarDeportista(deport);
-////            JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
-////            FRMRegistroDatosAntropometricos frmAntro = new FRMRegistroDatosAntropometricos(deport);
-////            frmAntro.setVisible(true);
-////            this.setVisible(false);            
-////        }
-////         else {
-////            JOptionPane.showMessageDialog(this, error,proper.getProperty("errorRegistro"),JOptionPane.ERROR_MESSAGE);
-////        }
-////
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtSegundoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSegundoNombreActionPerformed

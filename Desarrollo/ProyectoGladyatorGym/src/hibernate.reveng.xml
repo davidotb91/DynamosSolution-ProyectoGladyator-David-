@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="bdd_gladiatorgym"/>
+  <schema-selection match-catalog="bdd_gladiator_gym"/>
   <table-filter match-name="deportista"/>
+  <table-filter match-name="metas"/>
+  <table-filter match-name="acceso"/>
+  <table-filter match-name="musculo"/>
+  <table-filter match-name="impedimentos"/>
+  <table-filter match-name="pago"/>
+  <table-filter match-name="planificacion"/>
+  <table-filter match-name="rutina"/>
   <table-filter match-name="m_antropometricas"/>
+  <table-filter match-name="perfil"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="ejercicio"/>
 </hibernate-reverse-engineering>

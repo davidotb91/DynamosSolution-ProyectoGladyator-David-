@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/10/2016 17:26:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dl.Metas" table="metas" catalog="bdd_gladiator_gym" optimistic-lock="version">
+        <id name="idMeta" type="java.lang.Integer">
+            <column name="ID_META" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="deportista" class="dl.Deportista" fetch="select">
+            <column name="ID_DEPORTISTA" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="70" not-null="true" />
+        </property>
+        <set name="planificacions" table="planificacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_META" />
+            </key>
+            <one-to-many class="dl.Planificacion" />
+        </set>
+    </class>
+</hibernate-mapping>

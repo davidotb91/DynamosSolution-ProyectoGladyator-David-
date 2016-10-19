@@ -553,7 +553,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         double muslo = 0;
         double pantorilla = 0;
         Integer grasa=0;
-        Integer irm=0;
+        String irm = "";
         
         //ESTO LO HAGO PARA LEER EL PROPERTIES
         try {
@@ -604,7 +604,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                 cintura = Double.parseDouble(txtCintura.getText());
                 cadera = Double.parseDouble(txtCadera.getText());
                 muslo = Double.parseDouble(txtMuslo.getText());
-                irm = Integer.parseInt(txtIRM.getText());
+                irm = txtIRM.getText();
                 grasa = Integer.parseInt(txtGrasa.getText());
                 
 
@@ -621,7 +621,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             mat.setCadera((float)cadera);
             mat.setCintura((float)cintura);
             mat.setDeportista(d);
-            mat.setGrasaCorporal(grasa);
+            mat.setImc(grasa);
             mat.setPecho((float)pecho);
             mat.setIrm(irm);
             mat.setMuslo((float)muslo);

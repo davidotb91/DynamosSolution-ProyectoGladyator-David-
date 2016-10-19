@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/10/2016 17:26:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dl.Usuario" table="usuario" catalog="bdd_gladiator_gym" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="ID_USUARIO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="perfil" class="dl.Perfil" fetch="select">
+            <column name="ID_PERFIL" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="USUARIO" length="40" not-null="true" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="CONTRASENA" length="50" not-null="true" />
+        </property>
+        <set name="accesos" table="acceso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" />
+            </key>
+            <one-to-many class="dl.Acceso" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -84,13 +84,13 @@ public class Prueba extends javax.swing.JFrame {
         ControladorDeportista Controla = new ControladorDeportista();
         ControladorDatosAntro cont = new ControladorDatosAntro();
 //      Date fecha = new Date(1991, 12, 22);
-        Deportista deport = new Deportista("David","Maria","Hurtado","Chicaiza","M","1720735079",dtcFechaNaciemiento.getDate(),edad,"0996700359","022699712","VillaFlora-Rodrigo de Chavez Oe-254");
-       
-        System.out.println("ID: "+ deport.getIdDeportista());
-        MAntropometricas mat = new MAntropometricas(deport,20,167,35,46,57,6,70,4,5,65);
-        
-        Controla.insertarDeportista(deport);
-        cont.insertarDatosAntropometricos(mat);
+//        Deportista deport = new Deportista("David","Maria","Hurtado","Chicaiza","M","1720735079",dtcFechaNaciemiento.getDate(),edad,"0996700359","022699712","VillaFlora-Rodrigo de Chavez Oe-254");
+//       
+//        System.out.println("ID: "+ deport.getIdDeportista());
+//        MAntropometricas mat = new MAntropometricas(deport,20,167,35,46,57,6,70,4,5,65);
+//        
+//        Controla.insertarDeportista(deport);
+//        cont.insertarDatosAntropometricos(mat);
     }//GEN-LAST:event_btnProbarActionPerformed
 
     /**

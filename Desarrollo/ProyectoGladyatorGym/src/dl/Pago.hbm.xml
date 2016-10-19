@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/10/2016 17:26:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="dl.Pago" table="pago" catalog="bdd_gladiator_gym" optimistic-lock="version">
+        <id name="idPago" type="java.lang.Integer">
+            <column name="ID_PAGO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="deportista" class="dl.Deportista" fetch="select">
+            <column name="ID_DEPORTISTA" />
+        </many-to-one>
+        <property name="fechaPago" type="date">
+            <column name="FECHA_PAGO" length="10" not-null="true" />
+        </property>
+        <property name="fechaVencimientoPago" type="date">
+            <column name="FECHA_VENCIMIENTO_PAGO" length="10" not-null="true" />
+        </property>
+        <property name="tipoPago" type="string">
+            <column name="TIPO_PAGO" length="20" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="40" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

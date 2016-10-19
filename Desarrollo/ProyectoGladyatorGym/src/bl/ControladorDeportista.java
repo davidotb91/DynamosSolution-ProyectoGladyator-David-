@@ -32,8 +32,8 @@ public class ControladorDeportista {
         session.close();
         JOptionPane.showMessageDialog(null,"Insertado correctamente.");
     } 
-   
-    public DefaultListModel mostrarDeportistas()
+        
+     public List <Deportista> mostrarDeportistas1()
     {
         SessionFactory sesion = HibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
@@ -46,31 +46,47 @@ public class ControladorDeportista {
         DefaultListModel dlm = new DefaultListModel();
         while(iter.hasNext())
         {
+             
             Deportista noti = (Deportista) iter.next();
+            
             dlm.addElement(noti);
+           
         }
-        return dlm;
+          System.out.println("Elementos en BDD: "+lista.size());
+           
+        return lista;
+        
     }
-    
-     public DefaultListModel obtenerDatosDeportista(String cedula){
+
+
+      public void obtenerDatosDeportista1(){
         SessionFactory sesion = HibernateUtil.getSessionFactory();
         Session session = sesion.openSession();
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from deportista d where deportista.cedula=" + cedula +"");
-        List<Deportista> lista = q.list();
-        Iterator<Deportista> iter=lista.iterator();
+        Query q = session.createQuery("FROM Deportista d where d.primerNombre like 'K%' ");
+        List<Deportista> lista = q.list(); 
+        
+        for (int i = 0 ; i<lista.size(); i++){
+            Deportista deportista = lista.get(i);
+            System.out.println("Nombre:"+ deportista.getPrimerNombre());
+        }
         tx.commit();
         session.close();
-        DefaultListModel dlm = new DefaultListModel();
-        while(iter.hasNext())
-        {
-            Deportista noti = (Deportista) iter.next();
-           
-            dlm.addElement(noti);
-        }
-        return dlm;
+//        DefaultListModel dlm = new DefaultListModel();
+//        while(iter.hasNext())
+//        {
+//            Deportista noti = (Deportista) iter.next();
+//           
+//            dlm.addElement(noti);
+//        }
+        
      }
 
+     
+     
+     
+     
+     
 //        public DefaultListModel mostrarNoticias()
 //    {
 //        SessionFactory sesion = NewHibernateUtil.getSessionFactory();
@@ -90,5 +106,7 @@ public class ControladorDeportista {
 //        return dlm;
 //    }    
     
+     
+        
     
 }
