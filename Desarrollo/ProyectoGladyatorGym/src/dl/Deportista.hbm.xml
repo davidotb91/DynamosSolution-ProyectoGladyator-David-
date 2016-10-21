@@ -59,7 +59,7 @@
             </key>
             <one-to-many class="dl.Metas" />
         </set>
-        <set name="pagos" table="pago" inverse="true" lazy="true" fetch="select">
+        <set name="pagos" table="pago" cascade ="all" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="ID_DEPORTISTA" />
             </key>

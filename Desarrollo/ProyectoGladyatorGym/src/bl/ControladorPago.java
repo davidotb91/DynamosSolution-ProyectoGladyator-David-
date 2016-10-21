@@ -11,6 +11,7 @@ import dl.Pago;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,8 +31,10 @@ public class ControladorPago {
         Query q = session.createQuery("from Pago p");
         List<Pago> lista = q.list();
         Iterator<Pago> iter=lista.iterator();
+        Hibernate.initialize(lista);
         tx.commit();
         session.close();
+        Hibernate.initialize(lista);
         DefaultListModel dlm = new DefaultListModel();
        
         while(iter.hasNext())
@@ -43,9 +46,17 @@ public class ControladorPago {
            
         }
           System.out.println("Elementos en BDD: "+lista.size());
+          
+//          for(Pago pago : lista){
+//              Hibernate.initialize(pago);
+//          }
            
         return lista;
         
     }
+  
+//    public List <Pago> mostrarPago1(){
+//        
+//    }
     
 }

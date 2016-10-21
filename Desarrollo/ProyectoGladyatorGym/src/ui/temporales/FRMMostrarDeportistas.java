@@ -6,7 +6,9 @@
 package ui.temporales;
 
 import bl.ControladorDeportista;
+import bl.ControladorPago;
 import dl.Deportista;
+import dl.Pago;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
@@ -21,6 +23,8 @@ import javax.swing.table.TableRowSorter;
  */
 public class FRMMostrarDeportistas extends javax.swing.JFrame {
     DefaultListModel dlm;
+    ControladorPago controladorpago;
+    List <Pago> listaPago;
     ControladorDeportista controladordep;
     List <Deportista> listaDeportistas;
     private TableRowSorter trsFiltro;
@@ -31,6 +35,7 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
         initComponents();
       
         controladordep = new ControladorDeportista();
+        controladorpago = new ControladorPago();
         
 //        dlm = new DefaultListModel ();
          
@@ -39,7 +44,9 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
 //        listad.setModel(dlm);
 //        System.out.println("Indices: " + dlm.getSize());
         listaDeportistas = controladordep.mostrarDeportistas1();
+        listaPago=controladorpago.mostrarPago();
         ponerEnTabla();
+       // ponerEnTablaForPago();
 
     }
     
@@ -52,13 +59,30 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
             
             fila[0]= listaDeportista.getCedula();
             fila[1]=listaDeportista.getPrimerNombre();
-            fila[2]=listaDeportista.getApellidoPaterno();
+            fila[2]=listaDeportista.getApellidoPaterno();            
             modelo.addRow(fila);
             tblDatos.setModel(modelo);
           }
      
     }
     
+     public void ponerEnTablaForPago(){
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object [] fila=new Object[7];
+  
+        for (Pago listaPago1: listaPago) { 
+              System.out.println("Aqui");
+            fila[0]= listaPago1.getDeportista().getCedula();
+            fila[1]=listaPago1.getDeportista().getPrimerNombre();
+            fila[2]=listaPago1.getDeportista().getApellidoPaterno();  
+            fila[3]= listaPago1.getTipoPago();
+            fila[4]= listaPago1.getFechaPago();
+            fila[5]= listaPago1.getFechaVencimientoPago();
+            modelo.addRow(fila);
+            tblDatos.setModel(modelo);
+          }
+     
+    }
 
     public void filtro() {
         int columnaABuscar = 0;
@@ -90,17 +114,18 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
         txtFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Cédula", "Nombre", "Apellido"
+                "Cédula", "Nombre", "Apellido", "Tipo de pago", "Fecha de Pago", "Fecha de Vencimiento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, true, false, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

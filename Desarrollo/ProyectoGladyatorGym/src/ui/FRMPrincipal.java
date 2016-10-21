@@ -39,12 +39,13 @@ public class FRMPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FramePrincipal.jpg"))); // NOI18N
+        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PantallaPrincipal.jpg"))); // NOI18N
 
         jToolBar1.setRollover(true);
 
-        btnRegistroRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_deportista.jpg"))); // NOI18N
+        btnRegistroRutina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Icono_Deportista.png"))); // NOI18N
         btnRegistroRutina.setText("buttonTransluceIcon1");
         btnRegistroRutina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -52,7 +53,7 @@ public class FRMPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnRegistroDeportista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_Icono_rutina.jpg"))); // NOI18N
+        btnRegistroDeportista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Icono_Rutina.jpg"))); // NOI18N
         btnRegistroDeportista1.setText("buttonTransluceIcon1");
         btnRegistroDeportista1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

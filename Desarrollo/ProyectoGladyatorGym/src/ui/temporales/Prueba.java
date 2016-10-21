@@ -37,6 +37,7 @@ public class Prueba extends javax.swing.JFrame {
         btnProbar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btnProbar.setText("Probar");
         btnProbar.addActionListener(new java.awt.event.ActionListener() {

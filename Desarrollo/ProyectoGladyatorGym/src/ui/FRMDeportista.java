@@ -34,6 +34,7 @@ public class FRMDeportista extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PANTALLA DEPORTISTAmmg.jpg"))); // NOI18N
 
@@ -64,12 +65,13 @@ public class FRMDeportista extends javax.swing.JFrame {
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
                 .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                            .addGap(245, 245, 245)
-                            .addComponent(jButton1)
-                            .addGap(107, 107, 107)))
+                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(107, 107, 107))))
                     .addGroup(jcMousePanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))

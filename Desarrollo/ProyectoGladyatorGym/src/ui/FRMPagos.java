@@ -33,6 +33,7 @@ public class FRMPagos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PANTALLA DEPORTISTAmmg.jpg"))); // NOI18N
 
