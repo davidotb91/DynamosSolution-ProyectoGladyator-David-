@@ -422,7 +422,6 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
 
         lblNombre1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblNombre1.setForeground(new java.awt.Color(255, 0, 0));
-        lblNombre1.setText("*");
 
         lblNombre2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblNombre2.setForeground(new java.awt.Color(255, 0, 0));
@@ -618,7 +617,7 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
         }
         
        
-        if(txtPrimerNombre.getText().equals("") || txtSegundoNombre.getText().equals("") || txtAMaterno.getText().equals("")
+        if(txtPrimerNombre.getText().equals("") || txtAMaterno.getText().equals("")
            || txtAPaterno.getText().equals("") || txtCedula.getText().equals("")|| txtDireccionn.getText().equals("") ||
            txtTFijo.getText().equals("")||txtTMovil.getText().equals("")){
             error+="Los campos con (*) son OBLIGATORIOS";
@@ -632,11 +631,14 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
         error+= validar.validarSoloLetras(txtSegundoNombre.getText(),proper.getProperty("errorSegundoNombre"));
         error+= validar.validarSoloLetras(txtAPaterno.getText(),proper.getProperty("errorAPaterno"));
         error+= validar.validarSoloLetras(txtAMaterno.getText(),proper.getProperty("errorAMaterno"));                
-        error+=validar.validarSoloNumeros(txtCedula.getText(), proper.getProperty("errorCedula")); 
-//        error+=validar.validarCorreo(txtCorreo.getText(),proper.getProperty("errorCorreo"));
-        error+= validar.validarSoloLetras(txtFacebook.getText(),proper.getProperty("errorFacebook")); 
-        error+=validar.validarSoloNumeros(txtTFijo.getText(), proper.getProperty("errorTfijo"));
+        error+=validar.validadorCedula(txtCedula.getText(), proper.getProperty("errorCedula")); 
+        error+=validar.validarCorreo(txtCorreo.getText(),proper.getProperty("errorCorreo"));
+        error+= validar.validarSoloLetras(txtFacebook.getText(),proper.getProperty("errorFacebook"));
+        error+=validar.validarNumeros10(txtTMovil.getText(),proper.getProperty("errorTmovil1"));
         error+=validar.validarSoloNumeros(txtTMovil.getText(), proper.getProperty("errorTmovil"));
+        error+=validar.validarInicio(txtTMovil.getText(), proper.getProperty("errorTmovil2"));
+        error+=validar.validarNumeros7(txtTFijo.getText(),proper.getProperty("errorTfijo1"));
+        error+=validar.validarSoloNumeros(txtTFijo.getText(), proper.getProperty("errorTfijo"));
         }
         
         if(error.equals("")){
@@ -655,7 +657,7 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
                                             txtDireccionn.getText());
             
             Controla.insertarDeportista(deport);
-            JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
+            JOptionPane.showMessageDialog(null,proper.getProperty("almacenamientoExitoso"));
             FRMRegistroDatosAntropometricos frmAntro = new FRMRegistroDatosAntropometricos(deport);
             frmAntro.setVisible(true);
             this.setVisible(false);            
@@ -732,6 +734,7 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
 
     private void txtTFijoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTFijoKeyTyped
         int maximo = 7;
+        
         if(txtTFijo.getText().length()>=maximo){
             evt.consume();
             JOptionPane.showMessageDialog(rootPane, "Solo se admiten 7 caracteres en el campo Teléfono Fijo");

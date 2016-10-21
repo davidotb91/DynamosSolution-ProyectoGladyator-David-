@@ -225,6 +225,16 @@ public class Validaciones {
         }        
     }
     
+    public String validarInicio(String numero, String proper){
+        Pattern pat = Pattern.compile("09.*");
+     Matcher mat = pat.matcher(numero);
+     if (mat.matches()) {
+         return "";
+     } else {
+         return proper + "\n";
+     }
+    }
+    
     public String validarSoloNumeros(String cadena, String proper){
      Pattern pat = Pattern.compile("[a-zA-Z]");
      Matcher mat = pat.matcher(cadena);
@@ -235,4 +245,78 @@ public class Validaciones {
          return "";
      }
     }
-}
+    
+    public String validarNumeros10(String cadena, String proper){
+        if (cadena.length()<10){
+            return proper + "\n";
+        }
+        else{
+            return"";
+        }
+    }
+    public String validarNumeros7(String cadena, String proper){
+        if (cadena.length()<7){
+            return proper + "\n";
+        }
+        else{
+            return"";
+        }
+    }
+    
+     public boolean validadorDeCedula(String cedula) {
+        boolean cedulaCorrecta = false;
+
+        try {
+
+        if (cedula.length() == 10) // ConstantesApp.LongitudCedula
+        {
+        int tercerDigito = Integer.parseInt(cedula.substring(2, 3));
+        if (tercerDigito < 6) {
+        // Coeficientes de validación cédula
+        // El decimo digito se lo considera dígito verificador
+         int[] coefValCedula = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+         int verificador = Integer.parseInt(cedula.substring(9,10));
+         int suma = 0;
+         int digito = 0;
+        for (int i = 0; i < (cedula.length() - 1); i++) {
+         digito = Integer.parseInt(cedula.substring(i, i + 1))* coefValCedula[i];
+         suma += ((digito % 10) + (digito / 10));
+        }
+
+        if ((suma % 10 == 0) && (suma % 10 == verificador)) {
+         cedulaCorrecta = true;
+        }
+        else if ((10 - (suma % 10)) == verificador) {
+         cedulaCorrecta = true;
+        } else {
+         cedulaCorrecta = false;
+        }
+        } else {
+        cedulaCorrecta = false;
+        }
+        } else {
+        cedulaCorrecta = false;
+        }
+        } catch (NumberFormatException nfe) {
+        cedulaCorrecta = false;
+        } catch (Exception err) {
+        System.out.println("Una excepcion ocurrio en el proceso de validadcion");
+        cedulaCorrecta = false;
+        }
+
+        if (!cedulaCorrecta) {
+        System.out.println("La Cédula ingresada es Incorrecta");
+        }
+        return cedulaCorrecta;
+        }
+     
+     public String validadorCedula(String cedula, String proper){
+         if (this.validadorDeCedula(cedula)){
+             return "";
+         }
+         else{
+              return proper + "\n";
+         }
+     }
+    }
+

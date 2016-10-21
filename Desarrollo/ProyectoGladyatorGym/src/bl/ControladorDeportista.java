@@ -30,7 +30,7 @@ public class ControladorDeportista {
         session.save(deportista);
         tx.commit();
         session.close();
-        JOptionPane.showMessageDialog(null,"Insertado correctamente.");
+     //JOptionPane.showMessageDialog(null,"Insertado correctamente.");
     } 
         
      public List <Deportista> mostrarDeportistas1()
