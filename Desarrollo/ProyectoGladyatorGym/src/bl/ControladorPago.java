@@ -55,11 +55,7 @@ public class ControladorPago {
         
     }
   
-<<<<<<< HEAD
-//    public List <Pago> mostrarPago1(){
-//        
-//    }
-=======
+
   public void insertarPago( Pago pago)
     {
         SessionFactory sesion = HibernateUtil.getSessionFactory();
@@ -70,6 +66,6 @@ public class ControladorPago {
         tx.commit();
         session.close();
     } 
->>>>>>> develop
+
     
 }
