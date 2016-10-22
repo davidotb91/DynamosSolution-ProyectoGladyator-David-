@@ -1,0 +1,10 @@
+diff a/Desarrollo/ProyectoGladyatorGym/src/ui/FRMRegistroDatosAntropometricos.java b/Desarrollo/ProyectoGladyatorGym/src/ui/FRMRegistroDatosAntropometricos.java	(rejected hunks)
+@@ -628,7 +628,7 @@
+             mat.setPeso((float)peso);
+             mat.setTalla((float)talla);
+             cont.insertarDatosAntropometricos(mat);
+-            JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
++           // JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
+             System.out.print("Deportista: "+ deportista.getIdDeportista());
+         
+ 

@@ -55,8 +55,21 @@ public class ControladorPago {
         
     }
   
+<<<<<<< HEAD
 //    public List <Pago> mostrarPago1(){
 //        
 //    }
+=======
+  public void insertarPago( Pago pago)
+    {
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session;
+        session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        session.save(pago);
+        tx.commit();
+        session.close();
+    } 
+>>>>>>> develop
     
 }

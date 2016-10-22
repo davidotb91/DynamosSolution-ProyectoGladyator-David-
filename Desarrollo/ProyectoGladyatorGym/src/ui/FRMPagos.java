@@ -5,6 +5,13 @@
  */
 package ui;
 
+import bl.ControladorPago;
+import dl.Deportista;
+import dl.Pago;
+import java.util.Date;
+import java.util.Properties;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CHRISTIAN RECALDE
@@ -29,7 +36,7 @@ public class FRMPagos extends javax.swing.JFrame {
 
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         jLabel1 = new javax.swing.JLabel();
-        CBPagos = new javax.swing.JComboBox<>();
+        cboPagos = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,7 +47,7 @@ public class FRMPagos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("FORMAS DE PAGO:");
 
-        CBPagos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboPagos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Tarjeta" }));
 
         jButton1.setText("GUARDAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -54,26 +61,28 @@ public class FRMPagos extends javax.swing.JFrame {
         jcMousePanel1Layout.setHorizontalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addContainerGap(198, Short.MAX_VALUE)
                 .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CBPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
-                .addContainerGap(248, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(237, 237, 237))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                        .addComponent(cboPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(177, 177, 177))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(226, 226, 226))))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(66, 66, 66)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(CBPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jButton1)
-                .addGap(59, 59, 59))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -96,6 +105,30 @@ public class FRMPagos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Properties proper = new Properties();
+        Deportista d = new Deportista();
+         d.setIdDeportista(1);
+        ControladorPago cntrPago = new ControladorPago();
+        Date fechaIngreso = new Date();
+        Date fechaVence = new Date();
+        if(cboPagos.getSelectedIndex()==0)
+        {
+            System.out.println("modalidad mensual");
+            fechaVence.setMonth(fechaIngreso.getMonth()+1);
+           
+        }
+        else
+        {
+            System.out.println("modalidad tarjeta");
+            fechaVence.setMonth(fechaIngreso.getMonth()+3);
+
+        }
+                    System.out.println("vence: "+fechaVence);
+                    
+       Pago pago = new Pago(d,fechaIngreso,fechaVence,cboPagos.getSelectedItem().toString(),"activo");
+        cntrPago.insertarPago(pago);
+        //JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -134,7 +167,7 @@ public class FRMPagos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CBPagos;
+    private javax.swing.JComboBox<String> cboPagos;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
