@@ -128,7 +128,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         jLabel1.setMaximumSize(new java.awt.Dimension(25, 10));
         jLabel1.setMinimumSize(new java.awt.Dimension(25, 10));
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_superior.jpg"))); // NOI18N
+        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO11_panel_superior.jpg"))); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel19.setText("Peso: (Kg)");
@@ -337,7 +337,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jPanel1.setName(""); // NOI18N
 
-        jcMousePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_central.jpg"))); // NOI18N
+        jcMousePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO11_panel_central.jpg"))); // NOI18N
 
         txtIMC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,7 +366,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                 .addGroup(jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboIRM, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
         jcMousePanel3Layout.setVerticalGroup(
             jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,7 +395,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jPanel3.setName(""); // NOI18N
 
-        jcMousePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_inferior.jpg"))); // NOI18N
+        jcMousePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO11_panel_inferior.jpg"))); // NOI18N
 
         jLabel13.setText("Metas:");
 

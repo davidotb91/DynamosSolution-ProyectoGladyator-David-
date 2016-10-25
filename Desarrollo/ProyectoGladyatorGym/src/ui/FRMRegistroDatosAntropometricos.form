@@ -82,7 +82,7 @@
         <Container class="jcMousePanel.jcMousePanel" name="jcMousePanel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO_panel_superior.jpg"/>
+              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO11_panel_superior.jpg"/>
             </Property>
           </Properties>
 
@@ -388,7 +388,7 @@
         <Container class="jcMousePanel.jcMousePanel" name="jcMousePanel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO_panel_central.jpg"/>
+              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO11_panel_central.jpg"/>
             </Property>
           </Properties>
 
@@ -406,7 +406,7 @@
                           <Component id="txtIMC" min="-2" pref="58" max="-2" attributes="0"/>
                           <Component id="cboIRM" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="413" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -490,7 +490,7 @@
         <Container class="jcMousePanel.jcMousePanel" name="jcMousePanel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO_panel_inferior.jpg"/>
+              <Image iconType="3" name="/img/Img_FrameMEDIDAS_ANTROPO11_panel_inferior.jpg"/>
             </Property>
           </Properties>
 
