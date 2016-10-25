@@ -8,8 +8,13 @@ package ui;
 import bl.ControladorPago;
 import dl.Deportista;
 import dl.Pago;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,12 +22,15 @@ import javax.swing.JOptionPane;
  * @author CHRISTIAN RECALDE
  */
 public class FRMPagos extends javax.swing.JFrame {
+         Deportista deportista = new Deportista();
+
 
     /**
      * Creates new form FRMPagos
      */
-    public FRMPagos() {
+    public FRMPagos(Deportista deportista) {
         initComponents();
+        this.deportista= deportista;
     }
 
     /**
@@ -37,7 +45,7 @@ public class FRMPagos extends javax.swing.JFrame {
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
         jLabel1 = new javax.swing.JLabel();
         cboPagos = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -49,10 +57,10 @@ public class FRMPagos extends javax.swing.JFrame {
 
         cboPagos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Tarjeta" }));
 
-        jButton1.setText("GUARDAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -60,29 +68,29 @@ public class FRMPagos extends javax.swing.JFrame {
         jcMousePanel1.setLayout(jcMousePanel1Layout);
         jcMousePanel1Layout.setHorizontalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addComponent(cboPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(177, 177, 177))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(226, 226, 226))))
+                        .addGap(112, 112, 112))))
+            .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(btnGuardar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cboPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnGuardar)
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,11 +111,21 @@ public class FRMPagos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         Properties proper = new Properties();
-        Deportista d = new Deportista();
-         d.setIdDeportista(1);
+         Deportista d = new Deportista();
+         d.setIdDeportista(deportista.getIdDeportista());
+         FileReader lector;
+          try {
+            lector = new FileReader("src\\util\\Bundle.properties");
+            proper.load(lector);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FRMRegistroDatosAntropometricos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
         ControladorPago cntrPago = new ControladorPago();
         Date fechaIngreso = new Date();
         Date fechaVence = new Date();
@@ -127,9 +145,11 @@ public class FRMPagos extends javax.swing.JFrame {
                     
        Pago pago = new Pago(d,fechaIngreso,fechaVence,cboPagos.getSelectedItem().toString(),"activo");
         cntrPago.insertarPago(pago);
+        JOptionPane.showMessageDialog(null,proper.getProperty("almacenamientoExitoso"));
+        this.setVisible(false);
         //JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,14 +181,14 @@ public class FRMPagos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FRMPagos().setVisible(true);
+                //new FRMPagos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cboPagos;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
     // End of variables declaration//GEN-END:variables

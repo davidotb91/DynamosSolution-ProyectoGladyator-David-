@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
  * @author desarrolloPC
  */
 public class ControladorImpedimentos {
-    public void insertarPago( Impedimentos impedimentos)
+    public void insertarImpedimentos( Impedimentos impedimentos)
     {
         SessionFactory sesion = HibernateUtil.getSessionFactory();
         Session session;

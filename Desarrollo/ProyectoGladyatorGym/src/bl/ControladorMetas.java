@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
  * @author desarrolloPC
  */
 public class ControladorMetas {
-    public void insertarPago( Metas metas)
+    public void insertarMetas( Metas metas)
     {
         SessionFactory sesion = HibernateUtil.getSessionFactory();
         Session session;

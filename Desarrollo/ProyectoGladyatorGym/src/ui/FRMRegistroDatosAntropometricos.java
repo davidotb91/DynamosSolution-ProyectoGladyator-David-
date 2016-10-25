@@ -6,8 +6,12 @@
 package ui;
 
 import bl.ControladorDatosAntro;
+import bl.ControladorImpedimentos;
+import bl.ControladorMetas;
 import dl.Deportista;
+import dl.Impedimentos;
 import dl.MAntropometricas;
+import dl.Metas;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -98,21 +102,21 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         lblBicepDerechoRequerido = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jcMousePanel3 = new jcMousePanel.jcMousePanel();
-        txtIRM = new javax.swing.JTextField();
-        txtGrasa = new javax.swing.JTextField();
+        txtIMC = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        cboIRM = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jcMousePanel2 = new jcMousePanel.jcMousePanel();
         jLabel13 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        cbBajar = new javax.swing.JCheckBox();
+        cbTonificar = new javax.swing.JCheckBox();
+        cbHiper = new javax.swing.JCheckBox();
+        cbMantenimiento = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textImpedimentos = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -335,15 +339,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jcMousePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_central.jpg"))); // NOI18N
 
-        txtIRM.addActionListener(new java.awt.event.ActionListener() {
+        txtIMC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIRMActionPerformed(evt);
-            }
-        });
-
-        txtGrasa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGrasaActionPerformed(evt);
+                txtIMCActionPerformed(evt);
             }
         });
 
@@ -352,6 +350,8 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jLabel14.setText("IRM:");
+
+        cboIRM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta", "Máxima" }));
 
         javax.swing.GroupLayout jcMousePanel3Layout = new javax.swing.GroupLayout(jcMousePanel3);
         jcMousePanel3.setLayout(jcMousePanel3Layout);
@@ -363,9 +363,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtGrasa)
-                    .addComponent(txtIRM, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboIRM, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jcMousePanel3Layout.setVerticalGroup(
@@ -374,12 +374,12 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGrasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIRM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(cboIRM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -399,18 +399,18 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jLabel13.setText("Metas:");
 
-        jCheckBox1.setText("Bajar de Peso");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbBajar.setText("Bajar de Peso");
+        cbBajar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cbBajarActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Tonificar");
+        cbTonificar.setText("Tonificar");
 
-        jCheckBox3.setText("Hipertrofia");
+        cbHiper.setText("Hipertrofia");
 
-        jCheckBox4.setText("Mantenimiento");
+        cbMantenimiento.setText("Mantenimiento");
 
         jButton1.setText("ATRAS");
 
@@ -426,9 +426,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textImpedimentos.setColumns(20);
+        textImpedimentos.setRows(5);
+        jScrollPane1.setViewportView(textImpedimentos);
 
         jLabel15.setText("Inpedimentos:");
 
@@ -444,14 +444,14 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
+                                .addComponent(cbBajar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jcMousePanel2Layout.createSequentialGroup()
                                 .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox2)
-                                    .addComponent(jCheckBox3)
-                                    .addComponent(jCheckBox4))
+                                    .addComponent(cbTonificar)
+                                    .addComponent(cbHiper)
+                                    .addComponent(cbMantenimiento))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -473,13 +473,13 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                         .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1))
+                            .addComponent(cbBajar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox2)
+                        .addComponent(cbTonificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox3)
+                        .addComponent(cbHiper)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox4)))
+                        .addComponent(cbMantenimiento)))
                 .addGap(18, 18, 18)
                 .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente)
@@ -527,17 +527,13 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
-    private void txtGrasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrasaActionPerformed
+    private void txtIMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIMCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtGrasaActionPerformed
+    }//GEN-LAST:event_txtIMCActionPerformed
 
-    private void txtIRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIRMActionPerformed
+    private void cbBajarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBajarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIRMActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cbBajarActionPerformed
 
     private void btnSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSiguienteMouseClicked
         // TODO add your handling code here:
@@ -553,9 +549,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         double cadera = 0;
         double muslo = 0;
         double pantorilla = 0;
-        Integer grasa=0;
+        double imc=0;
         String irm = "";
-        
+        String met="";
         //ESTO LO HAGO PARA LEER EL PROPERTIES
         try {
             lector = new FileReader("src\\util\\Bundle.properties");
@@ -589,8 +585,8 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
        error+=validador.validarCamposdetxtaDoubles(txtMuslo,proper.getProperty("errorMuslo"));
        
        error+=validador.validarCamposdetxtaDoublesOpcionales(txtCadera,proper.getProperty("errorCadera"));
-       error+=validador.validarCamposdetxtaDoublesOpcionales(txtGrasa,proper.getProperty("errorGrasa"));
-       error+=validador.validarCamposdetxtaDoublesOpcionales(txtIRM,proper.getProperty("errorIRM"));
+       error+=validador.validarCamposdetxtaDoublesOpcionales(txtIMC,proper.getProperty("errorGrasa"));
+       //error+=validador.validarCamposdetxtaDoublesOpcionales(txtIRM,proper.getProperty("errorIRM"));
        }
        else {
            error=proper.getProperty("errorVacios");
@@ -605,32 +601,71 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                 cintura = Double.parseDouble(txtCintura.getText());
                 cadera = Double.parseDouble(txtCadera.getText());
                 muslo = Double.parseDouble(txtMuslo.getText());
-                irm = txtIRM.getText();
-                grasa = Integer.parseInt(txtGrasa.getText());
+              //SELECCION DE IRM 
+            irm=cboIRM.getSelectedItem().toString();
+               imc=peso/(talla*talla);
+               //imc=20;
                 
 
             } catch (Exception e) {
                 System.out.println(e);
             }
             ControladorDatosAntro cont = new ControladorDatosAntro();
+            ControladorMetas cMet= new ControladorMetas();
+            ControladorImpedimentos cImp = new ControladorImpedimentos();
             Deportista d = new Deportista();
             d.setIdDeportista(deportista.getIdDeportista());
             MAntropometricas mat = new MAntropometricas();
+            Metas metas = new Metas();
+            Impedimentos imp = new Impedimentos();
+            metas.setDeportista(d);
+            imp.setDeportista(d);
+            imp.setDescripcion(textImpedimentos.getText());
+            if(cbBajar.isSelected()){
+                met+=cbBajar.getText();
+                System.out.println(met);
+                
+            }
+            if(cbHiper.isSelected()){
+                met+=cbHiper.getText();
+                System.out.println(met);
+                
+            }
+            if(cbMantenimiento.isSelected()){
+                met+=cbMantenimiento.getText();
+                System.out.println(met);
+                
+            }
+            if(cbTonificar.isSelected()){
+                met+=cbTonificar.getText();
+                System.out.println(met);
+                
+            }
+            metas.setDescripcion(met);
             mat.setBrazoDerecho((float)bDer);
             mat.setBrazoIzquierdo((float)bIzq);
             mat.setBrazoDerecho((float)bDer);
             mat.setCadera((float)cadera);
             mat.setCintura((float)cintura);
             mat.setDeportista(d);
-            mat.setImc(grasa);
+            mat.setImc((float)imc);
             mat.setPecho((float)pecho);
             mat.setIrm(irm);
             mat.setMuslo((float)muslo);
             mat.setPeso((float)peso);
             mat.setTalla((float)talla);
             cont.insertarDatosAntropometricos(mat);
+            cMet.insertarMetas(metas);
+            cImp.insertarImpedimentos(imp);
+            //insertar impedimentos
+            
+            //insertar metas
+            
             JOptionPane.showMessageDialog(null,proper.getProperty("almacenamientoExitoso"));
             System.out.print("Deportista: "+ deportista.getIdDeportista());
+            FRMPagos frmPagos = new FRMPagos(d);
+            frmPagos.setVisible(true);
+            this.setVisible(false);
         
 
 
@@ -712,11 +747,12 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSiguiente;
+    private javax.swing.JCheckBox cbBajar;
+    private javax.swing.JCheckBox cbHiper;
+    private javax.swing.JCheckBox cbMantenimiento;
+    private javax.swing.JCheckBox cbTonificar;
+    private javax.swing.JComboBox<String> cboIRM;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -734,7 +770,6 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
     private jcMousePanel.jcMousePanel jcMousePanel2;
     private jcMousePanel.jcMousePanel jcMousePanel3;
@@ -745,12 +780,12 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
     private javax.swing.JLabel lblPechoRequerido;
     private javax.swing.JLabel lblPesoRequerido;
     private javax.swing.JLabel lblTallaRequerido;
+    private javax.swing.JTextArea textImpedimentos;
     private javax.swing.JTextField txtBicepDerecho;
     private javax.swing.JTextField txtBicepIzquierdo;
     private javax.swing.JTextField txtCadera;
     private javax.swing.JTextField txtCintura;
-    private javax.swing.JTextField txtGrasa;
-    private javax.swing.JTextField txtIRM;
+    private javax.swing.JTextField txtIMC;
     private javax.swing.JTextField txtMuslo;
     private javax.swing.JTextField txtPecho;
     private javax.swing.JTextField txtPeso;
