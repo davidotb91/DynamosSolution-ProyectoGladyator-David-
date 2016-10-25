@@ -93,7 +93,7 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
             validar.validarSoloLetras(txtSegundoNombre.getText(),",SEGUNDO NOMBRE");
             validar.validarSoloLetras(txtAPaterno.getText(),"APELLIDO PATERNO");
             validar.validarSoloLetras(txtAMaterno.getText(),"APELLIDO MATERNO");
-            validar.validarSoloLetras(txtFacebook.getText(),"FACEBOOK");  
+            validar.validarCorreo(txtFacebook.getText(),"FACEBOOK");  
             validar.validarCorreo(txtCorreo.getText(),"CORREO");
             //Validaciones solo números
             validar.validarSoloNumeros(txtTFijo.getText(),"TELÉFONO FIJO");
@@ -112,7 +112,7 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
             validar.validarSoloLetras(txtSegundoNombre.getText(),",SEGUNDO NOMBRE ");
             validar.validarSoloLetras(txtAPaterno.getText(),"APELLIDO PATERNO ");
             validar.validarSoloLetras(txtAMaterno.getText(),"APELLIDO MATERNO ");
-            validar.validarSoloLetras(txtFacebook.getText(),"FACEBOOK ");  
+            validar.validarCorreo(txtFacebook.getText(),"FACEBOOK ");  
             validar.validarCorreo(txtCorreo.getText(),"CORREO ");
             //Validaciones solo números
             validar.validarSoloNumeros(txtTFijo.getText(),"TELÉFONO FIJO ");
@@ -634,7 +634,7 @@ public class FRMRegistroDatosPersonales extends javax.swing.JFrame {
         error+= validar.validarSoloLetras(txtAMaterno.getText(),proper.getProperty("errorAMaterno"));                
         error+=validar.validadorCedula(txtCedula.getText(), proper.getProperty("errorCedula")); 
         error+=validar.validarCorreo(txtCorreo.getText(),proper.getProperty("errorCorreo"));
-        error+= validar.validarSoloLetras(txtFacebook.getText(),proper.getProperty("errorFacebook"));
+        error+= validar.validarCorreo(txtFacebook.getText(),proper.getProperty("errorFacebook"));
         error+=validar.validarNumeros10(txtTMovil.getText(),proper.getProperty("errorTmovil1"));
         error+=validar.validarSoloNumeros(txtTMovil.getText(), proper.getProperty("errorTmovil"));
         error+=validar.validarInicio(txtTMovil.getText(), proper.getProperty("errorTmovil2"));
