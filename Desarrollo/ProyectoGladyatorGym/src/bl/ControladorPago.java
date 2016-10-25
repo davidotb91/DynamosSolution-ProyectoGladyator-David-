@@ -31,7 +31,7 @@ public class ControladorPago {
         Query q = session.createQuery("from Pago p");
         List<Pago> lista = q.list();
         Iterator<Pago> iter=lista.iterator();
-        Hibernate.initialize(lista);
+        System.out.print("Persona " + lista.get(0).getDeportista().getPrimerNombre());
         tx.commit();
         session.close();
         Hibernate.initialize(lista);

@@ -1,5 +1,5 @@
 package dl;
-// Generated 19/10/2016 17:26:37 by Hibernate Tools 4.3.1
+// Generated 24/10/2016 17:17:32 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -35,13 +35,15 @@ public class Deportista  implements java.io.Serializable {
     }
 
 	
-    public Deportista(String primerNombre, String apellidoPaterno, String genero, String cedula, Date fechaNacimiento, int edad, String direccion) {
+    public Deportista(String primerNombre, String apellidoPaterno, String apellidoMaterno, String genero, String cedula, Date fechaNacimiento, int edad, String celular, String direccion) {
         this.primerNombre = primerNombre;
         this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
         this.genero = genero;
         this.cedula = cedula;
         this.fechaNacimiento = fechaNacimiento;
         this.edad = edad;
+        this.celular = celular;
         this.direccion = direccion;
     }
     public Deportista(String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String genero, String cedula, String correo, Date fechaNacimiento, int edad, String facebook, String celular, String telefonoFijo, String direccion, Set impedimentoses, Set metases, Set pagos, Set MAntropometricases) {
@@ -63,20 +65,20 @@ public class Deportista  implements java.io.Serializable {
        this.pagos = pagos;
        this.MAntropometricases = MAntropometricases;
     }
-public Deportista(String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String genero, String cedula, String correo, Date fechaNacimiento, int edad, String facebook, String celular, String telefonoFijo, String direccion) {
-       this.primerNombre = primerNombre;
-       this.segundoNombre = segundoNombre;
-       this.apellidoPaterno = apellidoPaterno;
-       this.apellidoMaterno = apellidoMaterno;
-       this.genero = genero;
-       this.cedula = cedula;
-       this.correo = correo;
-       this.fechaNacimiento = fechaNacimiento;
-       this.edad = edad;
-       this.facebook = facebook;
-       this.celular = celular;
-       this.telefonoFijo = telefonoFijo;
-       this.direccion = direccion;
+    public Deportista(String primerNombre,String segundoNombre, String apellidoPaterno, String apellidoMaterno, String genero, String cedula,String correo, Date fechaNacimiento, int edad, String facebook,String celular,String tFijo, String direccion) {
+        this.primerNombre = primerNombre;
+        this.segundoNombre = segundoNombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.genero = genero;
+        this.cedula = cedula;
+        this.correo= correo;
+        this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
+        this.facebook = facebook;
+        this.celular = celular;
+        this.telefonoFijo =tFijo;
+        this.direccion = direccion;
     }
 
    

@@ -46,7 +46,7 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
         listaDeportistas = controladordep.mostrarDeportistas1();
         listaPago=controladorpago.mostrarPago();
         ponerEnTabla();
-       // ponerEnTablaForPago();
+        //ponerEnTablaForPago();
 
     }
     
@@ -71,10 +71,10 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
         Object [] fila=new Object[7];
   
         for (Pago listaPago1: listaPago) { 
-              System.out.println("Aqui");
-            fila[0]= listaPago1.getDeportista().getCedula();
-            fila[1]=listaPago1.getDeportista().getPrimerNombre();
-            fila[2]=listaPago1.getDeportista().getApellidoPaterno();  
+            
+            fila[0] = listaPago1.getDeportista().getCedula();
+            fila[1]= listaPago1.getDeportista().getPrimerNombre();
+            fila[2]= listaPago1.getDeportista().getApellidoPaterno();
             fila[3]= listaPago1.getTipoPago();
             fila[4]= listaPago1.getFechaPago();
             fila[5]= listaPago1.getFechaVencimientoPago();

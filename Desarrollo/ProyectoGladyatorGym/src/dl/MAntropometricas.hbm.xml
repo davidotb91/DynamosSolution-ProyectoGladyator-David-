@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19/10/2016 17:26:38 by Hibernate Tools 4.3.1 -->
+<!-- Generated 24/10/2016 17:17:33 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dl.MAntropometricas" table="m_antropometricas" catalog="bdd_gladiator_gym" optimistic-lock="version">
         <id name="idMAntropomrtricas" type="java.lang.Integer">
@@ -36,10 +36,10 @@
             <column name="MUSLO" precision="12" scale="0" not-null="true" />
         </property>
         <property name="irm" type="string">
-            <column name="IRM" length="10" />
+            <column name="IRM" length="10" not-null="true" />
         </property>
-        <property name="imc" type="java.lang.Integer">
-            <column name="IMC" />
+        <property name="imc" type="float">
+            <column name="IMC" precision="12" scale="0" not-null="true" />
         </property>
         <set name="planificacions" table="planificacion" inverse="true" lazy="true" fetch="select">
             <key>

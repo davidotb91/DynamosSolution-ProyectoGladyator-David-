@@ -1,5 +1,5 @@
 package dl;
-// Generated 19/10/2016 17:26:37 by Hibernate Tools 4.3.1
+// Generated 24/10/2016 17:17:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -22,14 +22,14 @@ public class MAntropometricas  implements java.io.Serializable {
      private Float cadera;
      private float muslo;
      private String irm;
-     private Integer imc;
+     private float imc;
      private Set planificacions = new HashSet(0);
 
     public MAntropometricas() {
     }
 
 	
-    public MAntropometricas(float peso, float talla, float brazoIzquierdo, float brazoDerecho, float pecho, float cintura, float muslo) {
+    public MAntropometricas(float peso, float talla, float brazoIzquierdo, float brazoDerecho, float pecho, float cintura, float muslo, String irm, float imc) {
         this.peso = peso;
         this.talla = talla;
         this.brazoIzquierdo = brazoIzquierdo;
@@ -37,8 +37,10 @@ public class MAntropometricas  implements java.io.Serializable {
         this.pecho = pecho;
         this.cintura = cintura;
         this.muslo = muslo;
+        this.irm = irm;
+        this.imc = imc;
     }
-    public MAntropometricas(Deportista deportista, float peso, float talla, float brazoIzquierdo, float brazoDerecho, float pecho, float cintura, Float cadera, float muslo, String irm, Integer imc, Set planificacions) {
+    public MAntropometricas(Deportista deportista, float peso, float talla, float brazoIzquierdo, float brazoDerecho, float pecho, float cintura, Float cadera, float muslo, String irm, float imc, Set planificacions) {
        this.deportista = deportista;
        this.peso = peso;
        this.talla = talla;
@@ -130,11 +132,11 @@ public class MAntropometricas  implements java.io.Serializable {
     public void setIrm(String irm) {
         this.irm = irm;
     }
-    public Integer getImc() {
+    public float getImc() {
         return this.imc;
     }
     
-    public void setImc(Integer imc) {
+    public void setImc(float imc) {
         this.imc = imc;
     }
     public Set getPlanificacions() {

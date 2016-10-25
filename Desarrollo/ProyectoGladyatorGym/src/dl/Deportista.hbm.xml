@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 19/10/2016 17:26:38 by Hibernate Tools 4.3.1 -->
+<!-- Generated 24/10/2016 17:17:33 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dl.Deportista" table="deportista" catalog="bdd_gladiator_gym" optimistic-lock="version">
         <id name="idDeportista" type="java.lang.Integer">
@@ -18,7 +18,7 @@
             <column name="APELLIDO_PATERNO" length="40" not-null="true" />
         </property>
         <property name="apellidoMaterno" type="string">
-            <column name="APELLIDO_MATERNO" length="40" />
+            <column name="APELLIDO_MATERNO" length="40" not-null="true" />
         </property>
         <property name="genero" type="string">
             <column name="GENERO" length="2" not-null="true" />
@@ -39,7 +39,7 @@
             <column name="FACEBOOK" length="40" />
         </property>
         <property name="celular" type="string">
-            <column name="CELULAR" length="10" />
+            <column name="CELULAR" length="10" not-null="true" />
         </property>
         <property name="telefonoFijo" type="string">
             <column name="TELEFONO_FIJO" length="10" />
@@ -59,7 +59,7 @@
             </key>
             <one-to-many class="dl.Metas" />
         </set>
-        <set name="pagos" table="pago" cascade ="all" inverse="true" lazy="true" fetch="select">
+        <set name="pagos" table="pago" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="ID_DEPORTISTA" />
             </key>
