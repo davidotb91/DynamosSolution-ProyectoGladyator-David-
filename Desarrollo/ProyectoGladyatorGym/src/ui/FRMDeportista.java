@@ -5,18 +5,72 @@
  */
 package ui;
 
+import bl.ControladorDeportista;
+import bl.ControladorPago;
+import dl.Deportista;
+import dl.Pago;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author CHRISTIAN RECALDE
  */
 public class FRMDeportista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FRMDeportista
-     */
+     DefaultListModel dlm;
+    ControladorPago controladorpago;
+    List <Pago> listaPago;
+    ControladorDeportista controladordep;
+    List <Deportista> listaDeportistas;
+    private TableRowSorter trsFiltro;
+    
     public FRMDeportista() {
         initComponents();
+          controladordep = new ControladorDeportista();
+        controladorpago = new ControladorPago();
+
+        listaDeportistas = controladordep.mostrarDeportistas1();
+        listaPago=controladorpago.mostrarPago();
+        ponerEnTabla();
     }
+    
+    
+    public void ponerEnTabla(){
+         DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        Object [] fila=new Object[6];
+  
+        for (Deportista listaDeportista : listaDeportistas) {
+            
+            fila[0]= listaDeportista.getCedula();
+            fila[1]=listaDeportista.getPrimerNombre();
+            fila[2]=listaDeportista.getApellidoPaterno();            
+            modelo.addRow(fila);
+            tblDatos.setModel(modelo);
+          }
+     
+    }
+    
+    public void filtro() {
+        int columnaABuscar = 0;
+        if (cmbFiltro.getSelectedItem() == "Cédula") {
+            columnaABuscar = 0;
+        }
+        if (cmbFiltro.getSelectedItem().toString().equals("Nombre")) {
+            columnaABuscar = 1;
+        }
+        if (cmbFiltro.getSelectedItem().toString().equals("Apellido")) {
+            columnaABuscar = 2;
+        }
+    trsFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,10 +82,9 @@ public class FRMDeportista extends javax.swing.JFrame {
     private void initComponents() {
 
         jcMousePanel1 = new jcMousePanel.jcMousePanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtFiltro = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDatos = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         cmbFiltro = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
@@ -40,26 +93,34 @@ public class FRMDeportista extends javax.swing.JFrame {
 
         jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PANTALLA DEPORTISTAmmg.jpg"))); // NOI18N
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtFiltroActionPerformed(evt);
+            }
+        });
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyTyped(evt);
             }
         });
 
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Cédula", "Nombre", "Apellido", ""
+                "Cédula", "Nombre", "Apellido"
             }
-        ));
-        jScrollPane1.setViewportView(tblDatos);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
-        jButton1.setText("MODIFICAR");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblDatos);
 
         cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Cédula", "Apellido" }));
 
@@ -70,36 +131,29 @@ public class FRMDeportista extends javax.swing.JFrame {
         jcMousePanel1.setLayout(jcMousePanel1Layout);
         jcMousePanel1Layout.setHorizontalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel1Layout.createSequentialGroup()
+                .addGap(0, 54, Short.MAX_VALUE)
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(jButton1))
-                    .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(105, 105, 105)
-                                .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(80, 80, 80)
+                        .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(93, 93, 93)
                 .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(40, 40, 40)
+                .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jButton1)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,9 +170,23 @@ public class FRMDeportista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFiltroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtFiltroActionPerformed
+
+    private void txtFiltroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyTyped
+        // TODO add your handling code here:
+        txtFiltro.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtFiltro.getText());
+                txtFiltro.setText(cadena);
+                repaint();
+                filtro();
+            }
+        });
+        trsFiltro = new TableRowSorter(tblDatos.getModel());
+        tblDatos.setRowSorter(trsFiltro);
+    }//GEN-LAST:event_txtFiltroKeyTyped
 
     /**
      * @param args the command line arguments
@@ -157,11 +225,10 @@ public class FRMDeportista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbFiltro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private jcMousePanel.jcMousePanel jcMousePanel1;
     private javax.swing.JTable tblDatos;
+    private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }
