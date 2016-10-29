@@ -93,6 +93,7 @@ public class FRMDeportista extends javax.swing.JFrame {
 
         jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PANTALLA DEPORTISTAmmg.jpg"))); // NOI18N
 
+        txtFiltro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFiltroActionPerformed(evt);
@@ -104,6 +105,7 @@ public class FRMDeportista extends javax.swing.JFrame {
             }
         });
 
+        tblDatos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -122,8 +124,10 @@ public class FRMDeportista extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblDatos);
 
+        cmbFiltro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Cédula", "Apellido" }));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Buscar por:");
 
@@ -153,7 +157,7 @@ public class FRMDeportista extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

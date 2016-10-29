@@ -116,6 +116,7 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        tblDatos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -134,8 +135,10 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblDatos);
 
+        cmbFiltro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Cédula", "Apellido" }));
 
+        txtFiltro.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFiltroKeyTyped(evt);
@@ -167,7 +170,7 @@ public class FRMMostrarDeportistas extends javax.swing.JFrame {
                     .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
 
         pack();
