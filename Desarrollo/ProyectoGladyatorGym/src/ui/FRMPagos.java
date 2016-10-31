@@ -183,7 +183,7 @@ public class FRMPagos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new FRMPagos().setVisible(true);
+               // new FRMPagos().setVisible(true);
             }
         });
     }

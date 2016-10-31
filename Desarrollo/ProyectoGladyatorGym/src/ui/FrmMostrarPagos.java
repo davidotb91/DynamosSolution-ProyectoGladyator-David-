@@ -6,6 +6,7 @@
 package ui;
 
 import bl.ControladorPago;
+import dl.Deportista;
 import dl.Pago;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -22,11 +23,11 @@ public class FrmMostrarPagos extends javax.swing.JFrame {
     /**
      * Creates new form FrmMostrarPagos
      */
-    public FrmMostrarPagos() {
+    public FrmMostrarPagos(Deportista deportista) {
         initComponents();
-//        this.id_deportista= id_deportista;
+        this.id_deportista= deportista.getIdDeportista();
         controladorpago = new ControladorPago();
-     //   listaPago=controladorpago.obtenerPagos();
+        listaPago=controladorpago.pagoParametro(id_deportista);
         ponerEnTablaForPago();
     }
     
@@ -134,7 +135,7 @@ public class FrmMostrarPagos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmMostrarPagos().setVisible(true);
+               // new FrmMostrarPagos().setVisible(true);
             }
         });
     }
