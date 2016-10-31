@@ -26,7 +26,7 @@ public class FrmMostrarPagos extends javax.swing.JFrame {
         initComponents();
 //        this.id_deportista= id_deportista;
         controladorpago = new ControladorPago();
-        listaPago=controladorpago.obtenerPagos();
+     //   listaPago=controladorpago.obtenerPagos();
         ponerEnTablaForPago();
     }
     

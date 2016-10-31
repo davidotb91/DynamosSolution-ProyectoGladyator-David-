@@ -55,8 +55,10 @@ public class FRMPagos extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("FORMAS DE PAGO:");
 
+        cboPagos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cboPagos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensual", "Tarjeta" }));
 
+        btnGuardar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,8 +76,8 @@ public class FRMPagos extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jcMousePanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(cboPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))))
+                        .addComponent(cboPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51))
             .addGroup(jcMousePanel1Layout.createSequentialGroup()
                 .addGap(138, 138, 138)
                 .addComponent(btnGuardar)
@@ -144,7 +146,7 @@ public class FRMPagos extends javax.swing.JFrame {
                     System.out.println("vence: "+fechaVence);
                     
        Pago pago = new Pago(d,fechaIngreso,fechaVence,cboPagos.getSelectedItem().toString(),"activo");
-        cntrPago.insertarPago(pago);
+      //  cntrPago.insertarPago(pago);
         JOptionPane.showMessageDialog(null,proper.getProperty("almacenamientoExitoso"));
         this.setVisible(false);
         //JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));

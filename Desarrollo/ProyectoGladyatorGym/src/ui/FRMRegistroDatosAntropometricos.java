@@ -128,9 +128,10 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         jLabel1.setMaximumSize(new java.awt.Dimension(25, 10));
         jLabel1.setMinimumSize(new java.awt.Dimension(25, 10));
 
-        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_superior.jpg"))); // NOI18N
+        jcMousePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO11_panel_superior.jpg"))); // NOI18N
 
-        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Peso: (Kg)");
 
         txtPeso.addActionListener(new java.awt.event.ActionListener() {
@@ -144,8 +145,9 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
-        lblPesoRequerido.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblPesoRequerido.setText("Requerido");
+        lblPesoRequerido.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblPesoRequerido.setForeground(new java.awt.Color(255, 0, 0));
+        lblPesoRequerido.setText("*");
 
         txtTalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,22 +155,28 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
-        jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Talla: (cm)");
 
-        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Pecho: (cm)");
 
-        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Cintura: (cm)");
 
-        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel18.setText("Bicep izquierdo: (cm)");
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Bicep izquierdo: ");
 
-        jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Cadera: (cm)");
 
-        jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Muslo: (cm)");
 
         txtMuslo.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +209,8 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Bicep derecho: (cm)");
 
         txtBicepDerecho.addActionListener(new java.awt.event.ActionListener() {
@@ -210,23 +219,29 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
-        lblTallaRequerido.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblTallaRequerido.setText("Requerido");
+        lblTallaRequerido.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblTallaRequerido.setForeground(new java.awt.Color(255, 0, 0));
+        lblTallaRequerido.setText("*");
 
-        lblPechoRequerido.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblPechoRequerido.setText("Requerido");
+        lblPechoRequerido.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblPechoRequerido.setForeground(new java.awt.Color(255, 0, 0));
+        lblPechoRequerido.setText("*");
 
-        lblCinturaRequerido.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblCinturaRequerido.setText("Requerido");
+        lblCinturaRequerido.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblCinturaRequerido.setForeground(new java.awt.Color(255, 0, 0));
+        lblCinturaRequerido.setText("*");
 
-        lblBicepIzquierdo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblBicepIzquierdo.setText("Requerido");
+        lblBicepIzquierdo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblBicepIzquierdo.setForeground(new java.awt.Color(255, 0, 0));
+        lblBicepIzquierdo.setText("*");
 
-        lblMusloRequerido.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblMusloRequerido.setText("Requerido");
+        lblMusloRequerido.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblMusloRequerido.setForeground(new java.awt.Color(255, 0, 0));
+        lblMusloRequerido.setText("*");
 
-        lblBicepDerechoRequerido.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        lblBicepDerechoRequerido.setText("Requerido");
+        lblBicepDerechoRequerido.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblBicepDerechoRequerido.setForeground(new java.awt.Color(255, 0, 0));
+        lblBicepDerechoRequerido.setText("*");
 
         javax.swing.GroupLayout jcMousePanel1Layout = new javax.swing.GroupLayout(jcMousePanel1);
         jcMousePanel1.setLayout(jcMousePanel1Layout);
@@ -337,7 +352,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jPanel1.setName(""); // NOI18N
 
-        jcMousePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_central.jpg"))); // NOI18N
+        jcMousePanel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO11_panel_central.jpg"))); // NOI18N
 
         txtIMC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,12 +360,13 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("IMC:");
 
-        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel14.setText("IRM:");
 
+        cboIRM.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cboIRM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta", "Máxima" }));
 
         javax.swing.GroupLayout jcMousePanel3Layout = new javax.swing.GroupLayout(jcMousePanel3);
@@ -366,7 +382,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                 .addGroup(jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtIMC, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboIRM, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
         jcMousePanel3Layout.setVerticalGroup(
             jcMousePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,10 +411,12 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
 
         jPanel3.setName(""); // NOI18N
 
-        jcMousePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO_panel_inferior.jpg"))); // NOI18N
+        jcMousePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Img_FrameMEDIDAS_ANTROPO11_panel_inferior.jpg"))); // NOI18N
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Metas:");
 
+        cbBajar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbBajar.setText("Bajar de Peso");
         cbBajar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,14 +424,19 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
             }
         });
 
+        cbTonificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbTonificar.setText("Tonificar");
 
+        cbHiper.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbHiper.setText("Hipertrofia");
 
+        cbMantenimiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbMantenimiento.setText("Mantenimiento");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("ATRAS");
 
+        btnSiguiente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -430,6 +453,7 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
         textImpedimentos.setRows(5);
         jScrollPane1.setViewportView(textImpedimentos);
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Inpedimentos:");
 
         javax.swing.GroupLayout jcMousePanel2Layout = new javax.swing.GroupLayout(jcMousePanel2);
@@ -444,15 +468,15 @@ public class FRMRegistroDatosAntropometricos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jcMousePanel2Layout.createSequentialGroup()
-                                .addComponent(cbBajar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
                                 .addGroup(jcMousePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cbTonificar)
                                     .addComponent(cbHiper)
                                     .addComponent(cbMantenimiento))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 123, Short.MAX_VALUE))
+                            .addGroup(jcMousePanel2Layout.createSequentialGroup()
+                                .addComponent(cbBajar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jcMousePanel2Layout.createSequentialGroup()
