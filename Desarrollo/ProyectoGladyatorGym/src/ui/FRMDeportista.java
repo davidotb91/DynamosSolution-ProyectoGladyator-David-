@@ -13,6 +13,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -29,15 +30,21 @@ public class FRMDeportista extends javax.swing.JFrame {
     ControladorDeportista controladordep;
     List <Deportista> listaDeportistas;
     private TableRowSorter trsFiltro;
+    Deportista deportista ;
+    int id;
     
     public FRMDeportista() {
         initComponents();
-          controladordep = new ControladorDeportista();
+        controladordep = new ControladorDeportista();
         controladorpago = new ControladorPago();
+        deportista = new Deportista();
 
         listaDeportistas = controladordep.mostrarDeportistas1();
-       // listaPago=controladorpago.mostrarPago();
+       // listaPago=controladorpago.pagoParametro();
+        ocultarColumnas();
         ponerEnTabla();
+        
+       // 
     }
     
     
@@ -46,14 +53,37 @@ public class FRMDeportista extends javax.swing.JFrame {
         Object [] fila=new Object[6];
   
         for (Deportista listaDeportista : listaDeportistas) {
-            
-            fila[0]= listaDeportista.getCedula();
-            fila[1]=listaDeportista.getPrimerNombre();
-            fila[2]=listaDeportista.getApellidoPaterno();            
+            fila[0]= listaDeportista.getIdDeportista();
+            fila[1]= listaDeportista.getCedula();
+            fila[2]=listaDeportista.getPrimerNombre();
+            fila[3]=listaDeportista.getApellidoPaterno();            
             modelo.addRow(fila);
             tblDatos.setModel(modelo);
           }
      
+    }
+    
+    public void ocultarColumnas(){
+         tblDatos.getColumn(tblDatos.getColumnName(0)).setWidth(0);
+         tblDatos.getColumn(tblDatos.getColumnName(0)).setMinWidth(0);
+         tblDatos.getColumn(tblDatos.getColumnName(0)).setMaxWidth(0);
+    }
+    
+     public void obtenerDatoSeleccionado(){
+        int fila = tblDatos.getSelectedRow();
+        deportista.setIdDeportista(Integer.parseInt(tblDatos.getValueAt(fila, 0).toString()));
+        deportista.setCedula(tblDatos.getValueAt(fila, 1).toString());
+        deportista.setPrimerNombre(tblDatos.getValueAt(fila, 2).toString());
+        deportista.setApellidoPaterno(tblDatos.getValueAt(fila, 3).toString());
+        id = deportista.getIdDeportista();
+        JOptionPane.showMessageDialog(null, "   Información del Paciente \n" + 
+                                       "\nN° de cédula         "+deportista.getCedula() + 
+                                       "\nNombres:               " + deportista.getPrimerNombre()+ 
+                                        "\nApellido Paterno:   " + deportista.getApellidoPaterno() + 
+                                        "\nID:    "+id);
+    FrmMostrarPagos frmMostrarPago = new FrmMostrarPagos(deportista);
+    frmMostrarPago.setVisible(true);
+        
     }
     
     public void filtro() {
@@ -87,6 +117,8 @@ public class FRMDeportista extends javax.swing.JFrame {
         tblDatos = new javax.swing.JTable();
         cmbFiltro = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        btnVerPago = new javax.swing.JButton();
+        btnMedidas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -111,11 +143,11 @@ public class FRMDeportista extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cédula", "Nombre", "Apellido"
+                "ID", "Cédula", "Nombre", "Apellido"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -130,6 +162,15 @@ public class FRMDeportista extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Buscar por:");
+
+        btnVerPago.setText("Ver Información de Pagos");
+        btnVerPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerPagoActionPerformed(evt);
+            }
+        });
+
+        btnMedidas.setText("Ver Medidas Antropométricas");
 
         javax.swing.GroupLayout jcMousePanel1Layout = new javax.swing.GroupLayout(jcMousePanel1);
         jcMousePanel1.setLayout(jcMousePanel1Layout);
@@ -146,6 +187,12 @@ public class FRMDeportista extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(47, 47, 47))
+            .addGroup(jcMousePanel1Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(btnVerPago)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMedidas)
+                .addGap(91, 91, 91))
         );
         jcMousePanel1Layout.setVerticalGroup(
             jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +204,11 @@ public class FRMDeportista extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(jcMousePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerPago)
+                    .addComponent(btnMedidas))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,6 +242,11 @@ public class FRMDeportista extends javax.swing.JFrame {
         trsFiltro = new TableRowSorter(tblDatos.getModel());
         tblDatos.setRowSorter(trsFiltro);
     }//GEN-LAST:event_txtFiltroKeyTyped
+
+    private void btnVerPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPagoActionPerformed
+        // TODO add your handling code here:
+        obtenerDatoSeleccionado();
+    }//GEN-LAST:event_btnVerPagoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,6 +284,8 @@ public class FRMDeportista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMedidas;
+    private javax.swing.JButton btnVerPago;
     private javax.swing.JComboBox<String> cmbFiltro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
