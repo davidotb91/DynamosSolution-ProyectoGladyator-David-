@@ -146,7 +146,7 @@ public class FRMPagos extends javax.swing.JFrame {
                     System.out.println("vence: "+fechaVence);
                     
        Pago pago = new Pago(d,fechaIngreso,fechaVence,cboPagos.getSelectedItem().toString(),"activo");
-      //  cntrPago.insertarPago(pago);
+       cntrPago.insertarPago(pago);
         JOptionPane.showMessageDialog(null,proper.getProperty("almacenamientoExitoso"));
         this.setVisible(false);
         //JOptionPane.showMessageDialog(null,proper.getProperty("Registro Exitoso"));
